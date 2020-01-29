@@ -19,6 +19,23 @@ export default class MyDocument extends Document {
           <>
             {initialProps.styles}
             {sheet.getStyleElement()}
+            <style>
+              {
+                `
+                  body {
+                    box-sizing: border-box;
+                    margin: 0;
+                    height: 100vh;
+                    width: 100vw;
+                  }
+                  
+                  #__next {
+                    height: 100%;
+                    width: 100%;
+                  }
+                `
+              }
+            </style>
           </>
         ),
       }
