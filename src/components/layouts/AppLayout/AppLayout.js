@@ -5,8 +5,9 @@ import styled from 'styled-components';
 
 const AppContainer = styled(motion.div)`
 	box-sizing: border-box;
-	margin: 0;
 	height: 100%;
+	margin: 0;
+	overflow-y: hidden;
 	width: 100%;
 `;
 
