@@ -22,16 +22,13 @@ export default class MyDocument extends Document {
             <style>
               {
                 `
+                  html {
+                    font-size: 16px;
+                  }
+                  
                   body {
                     box-sizing: border-box;
                     margin: 0;
-                    height: 100vh;
-                    width: 100vw;
-                  }
-                  
-                  #__next {
-                    height: 100%;
-                    width: 100%;
                   }
                 `
               }
