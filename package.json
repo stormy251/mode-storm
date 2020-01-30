@@ -4,15 +4,17 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "deploy": "now"
   },
   "dependencies": {
+    "framer-motion": "1.8.3",
     "next": "latest",
+    "now": "^16.7.3",
+    "prop-types": "15.7.2",
     "react": "16.12.0",
     "react-dom": "16.12.0",
-    "styled-components": "5.0.0",
-    "framer-motion": "1.8.3",
-    "prop-types": "15.7.2"
+    "styled-components": "5.0.0"
   },
   "devDependencies": {
     "babel-plugin-styled-components": "^1.8.0"
