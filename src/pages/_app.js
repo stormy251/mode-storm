@@ -1,6 +1,7 @@
 import App from 'next/app';
 import React from 'react';
 import AppLayout from 'components/layouts/AppLayout/AppLayout';
+import {ModalContextProvider} from 'lib/contexts/ModalContext';
 
 export default class MyApp extends App {
   render() {
@@ -8,13 +9,15 @@ export default class MyApp extends App {
     const LayoutComponent = Component.LayoutComponent;
 
     return (
-      <AppLayout
-        layoutKey={LayoutComponent.name}
-      >
-        <LayoutComponent {...pageProps} transitionKey={router.route}>
-          <Component {...pageProps}/>
-        </LayoutComponent>
-      </AppLayout>
+      <ModalContextProvider>
+        <AppLayout
+          layoutKey={LayoutComponent.name}
+        >
+          <LayoutComponent {...pageProps} transitionKey={router.route}>
+            <Component {...pageProps}/>
+          </LayoutComponent>
+        </AppLayout>
+      </ModalContextProvider>
     )
   }
 }

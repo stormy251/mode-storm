@@ -1,7 +1,8 @@
-import React from 'react'
+import React, {useContext, useState} from 'react'
 import {AnimatePresence, motion} from 'framer-motion';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import {ModalContext} from 'lib/contexts/ModalContext';
 
 const AppContainer = styled(motion.div)`
 	box-sizing: border-box;
@@ -14,19 +15,28 @@ const AppContainer = styled(motion.div)`
 const AppLayout = (props) => {
 	const {children, layoutKey} = props;
 
+	const {modalArray} = useContext(ModalContext);
+
 	return (
-		<AnimatePresence
-			exitBeforeEnter
-		>
-			<AppContainer
-				key={layoutKey}
-				initial={{opacity:0}}
-				animate={{opacity:1}}
-				exit={{opacity:0}}
+		<>
+			<AnimatePresence
+				exitBeforeEnter
 			>
-				{children}
-			</AppContainer>
-		</AnimatePresence>
+				<AppContainer
+					key={layoutKey}
+					initial={{opacity:0}}
+					animate={{opacity:1}}
+					exit={{opacity:0}}
+				>
+					{children}
+				</AppContainer>
+			</AnimatePresence>
+			<AnimatePresence>
+				{modalArray.map(
+					(ModalConfig, index) => <ModalConfig.Component key={'modalOverlay' + index} {...ModalConfig.props}/>
+				)}
+			</AnimatePresence>
+		</>
 	)
 };
 

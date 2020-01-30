@@ -14,6 +14,11 @@ const DiscoverPage = (props) => {
 			<Link href="/home/[organizationId]/data_sources/[dataSourceId]" as="/home/mode/data_sources/345">
 				<a>To Test Data Sources</a>
 			</Link>
+			<br/>
+			<br/>
+			<Link href="/">
+				<a>To Dummy Page</a>
+			</Link>
 		</>
 	)
 };
