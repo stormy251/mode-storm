@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import HomeLayout from 'components/layouts/HomeLayout/HomeLayout';
+import {HomeLayout} from 'modules/home';
 
 const ErrorPage = () => {
   return (

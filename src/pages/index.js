@@ -2,8 +2,8 @@ import React, {useContext} from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import {ModalContext} from 'lib/contexts/ModalContext';
-import DummyLayout from 'components/layouts/DummyLayout';
+import {ModalContext} from 'modules/app';
+import {DummyLayout} from 'modules/dummy';
 import Modal from 'components/Modal';
 
 const ModalContainer = styled.div`
@@ -28,7 +28,7 @@ DummyModal.propTypes = {
   closeModal: PropTypes.func
 };
 
-const RootPage = () => {
+const DummyPage = () => {
   const {openModal, closeModal} = useContext(ModalContext);
 
   return (
@@ -42,11 +42,11 @@ const RootPage = () => {
   );
 };
 
-RootPage.LayoutComponent = DummyLayout;
+DummyPage.LayoutComponent = DummyLayout;
 
-RootPage.propTypes = {};
+DummyPage.propTypes = {};
 
-RootPage.getInitialProps = async ({query}) => {
+DummyPage.getInitialProps = async ({query}) => {
   const {organizationId} = query;
   return {
     organizationId,
@@ -54,4 +54,4 @@ RootPage.getInitialProps = async ({query}) => {
   };
 };
 
-export default RootPage;
+export default DummyPage;

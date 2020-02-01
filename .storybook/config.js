@@ -1,6 +1,6 @@
 import {addParameters, addDecorator, configure} from '@storybook/react';
 import {withA11y} from '@storybook/addon-a11y';
-import {white, gray, blue} from 'lib/styles/colors';
+import {colors} from 'lib/theme';
 
 /*
   Section: Addon configuration
@@ -10,9 +10,9 @@ import {white, gray, blue} from 'lib/styles/colors';
 // --- Addon: backgrounds ---
 addParameters({
   backgrounds: [
-    {name: 'White Page', value: white, default: true},
-    {name: 'Grey Page', value: gray['500']},
-    {name: 'Blue Hover', value: blue['500']}
+    {name: 'White Page', value: colors.white, default: true},
+    {name: 'Grey Page', value: colors.gray.v500},
+    {name: 'Blue Hover', value: colors.blue.v500}
   ]
 });
 

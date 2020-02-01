@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
-import HomeLayout from 'components/layouts/HomeLayout';
 import PropTypes from 'prop-types';
+import {HomeLayout} from 'modules/home';
 
 const AllSpacesPage = () => {
   return (

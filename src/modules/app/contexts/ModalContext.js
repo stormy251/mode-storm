@@ -1,7 +1,6 @@
 import React, {createContext, useState} from 'react';
 import PropTypes from 'prop-types';
 
-// This is the interface to the ModalContext
 export const ModalContext = createContext({
   modalArray: [],
   openModal: () => {},

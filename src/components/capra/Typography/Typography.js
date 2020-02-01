@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, {css} from 'styled-components';
-import {gray} from 'lib/styles/colors';
+import {colors} from 'lib/theme';
 
 export const STYLES = {
   fontWeight: {
@@ -127,7 +127,7 @@ const Typography = (props) => {
 Typography.defaultProps = {
   align: 'inherit',
   children: null,
-  color: gray['1200'],
+  color: colors.gray.v1200,
   display: 'inherit',
   marginBottom: '0',
   noWrap: false,

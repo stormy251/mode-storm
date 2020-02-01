@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import Typography from './Typography';
-import {blue, green} from 'lib/styles/colors';
+import {colors} from 'lib/theme';
 
 const StoryRow = styled.div`
   align-items: center;
@@ -125,13 +125,13 @@ export const ColorShowcase = () => {
       </Typography>
       <Typography
         type="Body"
-        color={green['500']}
+        color={colors.green.v500}
       >
         Green
       </Typography>
       <Typography
         type="Body"
-        color={blue['500']}
+        color={colors.blue.v500}
       >
         Blue
       </Typography>

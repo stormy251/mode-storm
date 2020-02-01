@@ -20,7 +20,8 @@ module.exports = {
     alias: {
       components: path.join(__dirname, '..', 'src', 'components'),
       capra: path.join(__dirname, '..', 'src', 'components', 'capra'),
-      lib: path.join(__dirname, '..', 'src', 'lib')
+      lib: path.join(__dirname, '..', 'src', 'lib'),
+      modules: path.join(__dirname, '..', 'src', 'modules')
     }
   }
 };

@@ -3,13 +3,13 @@ import {motion} from 'framer-motion';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Typography from 'capra/Typography';
-import {white} from 'lib/styles/colors';
+import {colors} from 'lib/theme';
 
 const EditorNavContainer = styled(motion.div)`
 	align-items: center;
 	background-color: #393945;
 	box-sizing: border-box;
-	color: #ffffff;
+	color: ${colors.white};
 	display: flex;
 	height: 55px;
 	padding: 0 1rem;
@@ -21,7 +21,7 @@ const EditorNav = (props) => {
 
   return (
     <EditorNavContainer>
-      <Typography type="Title" color={white}>
+      <Typography type="Title" color={colors.white}>
         {title}
       </Typography>
     </EditorNavContainer>
