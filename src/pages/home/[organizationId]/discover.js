@@ -16,6 +16,16 @@ const DiscoverPage = (props) => {
 			</Link>
 			<br/>
 			<br/>
+			<Link href="/home/[organizationId]/spaces" as="/home/mode/spaces">
+				<a>To all spaces route</a>
+			</Link>
+			<br/>
+			<br/>
+			<Link href="/editor/[organizationId]/reports/[reportId]" as="/editor/mode/reports/123456">
+				<a>To Test Editor page</a>
+			</Link>
+			<br/>
+			<br/>
 			<Link href="/">
 				<a>To Dummy Page</a>
 			</Link>

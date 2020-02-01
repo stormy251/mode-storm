@@ -28,7 +28,7 @@ const RootPage = () => {
 	return (
 		<>
 			<h1>This is an entrypoint to the test playground.</h1>
-			<Link href="/home/[organizationId]/spaces/[spaceId]" as="/home/mode/spaces/123">
+			<Link href="/home/[organizationId]/discover" as="/home/mode/discover">
 				<a>To Discovery Page</a>
 			</Link>
 			<button onClick={() => openModal({Component:DummyModal, props:{closeModal}})}>Open dummy modal</button>
