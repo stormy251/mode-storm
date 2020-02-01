@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import {motion} from 'framer-motion';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
@@ -14,18 +14,18 @@ const HomeHeaderContainer = styled(motion.div)`
 `;
 
 const HomeHeader = (props) => {
-	const {title} = props;
+  const {title} = props;
 
-	return (
-		<HomeHeaderContainer>
-			{title}
-		</HomeHeaderContainer>
-	)
+  return (
+    <HomeHeaderContainer>
+      {title}
+    </HomeHeaderContainer>
+  );
 };
 
 HomeHeader.propTypes = {
-	/** The title of the page. */
-	title: PropTypes.string
+  /** The title of the page. */
+  title: PropTypes.string
 };
 
 export default HomeHeader;

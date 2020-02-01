@@ -4,18 +4,18 @@ import styled, {css} from 'styled-components';
 import {gray} from 'lib/styles/colors';
 
 export const STYLES = {
-	fontWeight: {
-		medium: '200',
-		regular: '500'
-	},
-	fontFamilies: {
-		blender: "'Blender', Helvetica, Arial, sans-serif",
-		graphik: "'Graphik', Helvetica, Arial, sans-serif"
-	}
+  fontWeight: {
+    medium: '200',
+    regular: '500'
+  },
+  fontFamilies: {
+    blender: "'Blender', Helvetica, Arial, sans-serif",
+    graphik: "'Graphik', Helvetica, Arial, sans-serif"
+  }
 };
 
 const typographyPropsMixin = ({align, color, display, marginBottom, noWrap}) => {
-	return css`
+  return css`
     color: ${() => color};
     display: ${display ? display : 'inherit'};
     margin: 0 0 ${marginBottom} 0;
@@ -100,64 +100,64 @@ const CaptionText = styled.p`
 `;
 
 const typographyTypeMap = {
-	'Display': DisplayText,
-	'Header': HeaderText,
-	'Hero': HeroText,
-	'Title': TitleText,
-	'Subtitle': SubtitleText,
-	'Body': BodyText,
-	'Section': SectionText,
-	'Caption': CaptionText
+  'Display': DisplayText,
+  'Header': HeaderText,
+  'Hero': HeroText,
+  'Title': TitleText,
+  'Subtitle': SubtitleText,
+  'Body': BodyText,
+  'Section': SectionText,
+  'Caption': CaptionText
 };
 
 /** The Typography component is responsible for ensuring all text rendered in the application is consistent. */
 const Typography = (props) => {
-	const {type, children, ...RemainingProps} = props;
-	const TypographyComponent = typographyTypeMap[type] || typographyTypeMap['Body'];
+  const {type, children, ...RemainingProps} = props;
+  const TypographyComponent = typographyTypeMap[type] || typographyTypeMap['Body'];
 
-	return (
-		<TypographyComponent
-			{...RemainingProps}
-		>
-			{children}
-		</TypographyComponent>
-	);
+  return (
+    <TypographyComponent
+      {...RemainingProps}
+    >
+      {children}
+    </TypographyComponent>
+  );
 };
 
 Typography.defaultProps = {
-	align: 'inherit',
-	children: null,
-	color: gray['1200'],
-	display: 'inherit',
-	marginBottom: '0',
-	noWrap: false,
-	type: 'Body-1'
+  align: 'inherit',
+  children: null,
+  color: gray['1200'],
+  display: 'inherit',
+  marginBottom: '0',
+  noWrap: false,
+  type: 'Body-1'
 };
 
 Typography.propTypes = {
-	/** Sets the text-align css property */
-	align: PropTypes.oneOf(['center', 'inherit', 'left', 'right', 'justify']),
-	/** Any React node */
-	children: PropTypes.node,
-	/** Sets the color css property */
-	color: PropTypes.string,
-	/** Sets the display css property */
-	display: PropTypes.oneOf(['inherit', 'initial', 'block', 'inline', 'inline-block']),
-	/** Sets the bottom margin of the element to a CSS string value */
-	marginBottom: PropTypes.string,
-	/** Sets the fixed width on the text containing element, as well as all the appropriate CSS to apply an ending ellipsis */
-	noWrap: PropTypes.bool,
-	/** Sets the core styles of the text to the predefined typography types */
-	type: PropTypes.oneOf([
-		'Display',
-		'Header',
-		'Hero',
-		'Title',
-		'Subtitle',
-		'Body',
-		'Section',
-		'Caption'
-	])
+  /** Sets the text-align css property */
+  align: PropTypes.oneOf(['center', 'inherit', 'left', 'right', 'justify']),
+  /** Any React node */
+  children: PropTypes.node,
+  /** Sets the color css property */
+  color: PropTypes.string,
+  /** Sets the display css property */
+  display: PropTypes.oneOf(['inherit', 'initial', 'block', 'inline', 'inline-block']),
+  /** Sets the bottom margin of the element to a CSS string value */
+  marginBottom: PropTypes.string,
+  /** Sets the fixed width on the text containing element, as well as all the appropriate CSS to apply an ending ellipsis */
+  noWrap: PropTypes.bool,
+  /** Sets the core styles of the text to the predefined typography types */
+  type: PropTypes.oneOf([
+    'Display',
+    'Header',
+    'Hero',
+    'Title',
+    'Subtitle',
+    'Body',
+    'Section',
+    'Caption'
+  ])
 };
 
 export default Typography;

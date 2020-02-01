@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import {motion} from 'framer-motion';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
@@ -17,20 +17,20 @@ const EditorNavContainer = styled(motion.div)`
 `;
 
 const EditorNav = (props) => {
-	const {title} = props;
+  const {title} = props;
 
-	return (
-		<EditorNavContainer>
-			<Typography type="Title" color={white}>
-				{title}
-			</Typography>
-		</EditorNavContainer>
-	)
+  return (
+    <EditorNavContainer>
+      <Typography type="Title" color={white}>
+        {title}
+      </Typography>
+    </EditorNavContainer>
+  );
 };
 
 EditorNav.propTypes = {
-	/** The title of the page. */
-	title: PropTypes.string
+  /** The title of the page. */
+  title: PropTypes.string
 };
 
 export default EditorNav;

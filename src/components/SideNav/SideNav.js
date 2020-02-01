@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import {motion} from 'framer-motion';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
@@ -13,18 +13,18 @@ const SideNavContainer = styled(motion.div)`
 `;
 
 const SideNav = (props) => {
-	const {children} = props;
+  const {children} = props;
 
-	return (
-		<SideNavContainer>
-			{children}
-		</SideNavContainer>
-	)
+  return (
+    <SideNavContainer>
+      {children}
+    </SideNavContainer>
+  );
 };
 
 SideNav.propTypes = {
-	/** Any React node */
-	children: PropTypes.node
+  /** Any React node */
+  children: PropTypes.node
 };
 
 export default SideNav;

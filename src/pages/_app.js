@@ -4,8 +4,8 @@ import AppLayout from 'components/layouts/AppLayout/AppLayout';
 import {ModalContextProvider} from 'lib/contexts/ModalContext';
 
 export default class MyApp extends App {
-  render() {
-    const { Component, pageProps, router } = this.props;
+  render () {
+    const {Component, pageProps, router} = this.props;
     const LayoutComponent = Component.LayoutComponent;
 
     return (
@@ -18,6 +18,6 @@ export default class MyApp extends App {
           </LayoutComponent>
         </AppLayout>
       </ModalContextProvider>
-    )
+    );
   }
 }

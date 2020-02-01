@@ -1,50 +1,50 @@
-import React from 'react'
+import React from 'react';
 import Link from 'next/link';
 import HomeLayout from 'components/layouts/HomeLayout';
 import PropTypes from 'prop-types';
 
-const DiscoverPage = (props) => {
-	return (
-		<>
-			<Link href="/home/[organizationId]/spaces/[spaceId]" as="/home/mode/spaces/123">
-				<a>To Test Spaces</a>
-			</Link>
-			<br/>
-			<br/>
-			<Link href="/home/[organizationId]/data_sources/[dataSourceId]" as="/home/mode/data_sources/345">
-				<a>To Test Data Sources</a>
-			</Link>
-			<br/>
-			<br/>
-			<Link href="/home/[organizationId]/spaces" as="/home/mode/spaces">
-				<a>To all spaces route</a>
-			</Link>
-			<br/>
-			<br/>
-			<Link href="/editor/[organizationId]/reports/[reportId]" as="/editor/mode/reports/123456">
-				<a>To Test Editor page</a>
-			</Link>
-			<br/>
-			<br/>
-			<Link href="/">
-				<a>To Dummy Page</a>
-			</Link>
-		</>
-	)
+const DiscoverPage = () => {
+  return (
+    <>
+      <Link href="/home/[organizationId]/spaces/[spaceId]" as="/home/mode/spaces/123">
+        <a>To Test Spaces</a>
+      </Link>
+      <br/>
+      <br/>
+      <Link href="/home/[organizationId]/data_sources/[dataSourceId]" as="/home/mode/data_sources/345">
+        <a>To Test Data Sources</a>
+      </Link>
+      <br/>
+      <br/>
+      <Link href="/home/[organizationId]/spaces" as="/home/mode/spaces">
+        <a>To all spaces route</a>
+      </Link>
+      <br/>
+      <br/>
+      <Link href="/editor/[organizationId]/reports/[reportId]" as="/editor/mode/reports/123456">
+        <a>To Test Editor page</a>
+      </Link>
+      <br/>
+      <br/>
+      <Link href="/">
+        <a>To Dummy Page</a>
+      </Link>
+    </>
+  );
 };
 
 DiscoverPage.LayoutComponent = HomeLayout;
 
 DiscoverPage.propTypes = {
-	organizationId: PropTypes.string
+  organizationId: PropTypes.string
 };
 
 DiscoverPage.getInitialProps = async ({query}) => {
-	const {organizationId} = query;
-	return {
-		organizationId,
-		pageTitle: `${organizationId}: Discover`
-	}
+  const {organizationId} = query;
+  return {
+    organizationId,
+    pageTitle: `${organizationId}: Discover`
+  };
 };
 
 export default DiscoverPage;
