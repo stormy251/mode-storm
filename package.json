@@ -7,7 +7,7 @@
     "start": "next start",
     "deploy": "now",
     "lint": "eslint --fix --ext .js src",
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
