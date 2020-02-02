@@ -1,9 +1,16 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
+import {UserContext} from 'modules/app';
 import {EditorLayout} from 'modules/editor';
 
 const ReportsPage = () => {
+  const {hasSeenEditor, setHasSeenEditor} = useContext(UserContext);
+
+  if (!hasSeenEditor) {
+    setHasSeenEditor();
+  }
+
   return (
     <>
       <h1>Hi I am a report</h1>

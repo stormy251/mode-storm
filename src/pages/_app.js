@@ -13,10 +13,7 @@ export default class MyApp extends App {
 
     if (isServer) {
       // Mock user API call
-      const user = await userFetcher('stormy');
-      console.log('-------------------------------------');
-      console.log('user:', user);
-      console.log('-------------------------------------');
+      const user = await userFetcher('admin');
 
       let pageProps = {};
 

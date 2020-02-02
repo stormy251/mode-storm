@@ -5,7 +5,7 @@ export const userFetcher = async (id) => {
 
   if (id) {
     try {
-      const userResponse = await fetch(`http://localhost:3000/api/user/${id}`);
+      const userResponse = await fetch(`${process.env.apiBaseURL}/api/user/${id}`);
       user = await userResponse.json();
     } catch (error) {
       console.log(error);

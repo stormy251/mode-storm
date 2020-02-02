@@ -1,17 +1,15 @@
-export default (req, res) => {
+export default ({query: {userId}}, res) => {
   let user = {};
-  const {query} = req;
-  const {userId} = query;
 
   switch(userId) {
-    case 'stormy':
+    case 'admin':
       user = {
-        name: 'Stormy Adams'
+        name: 'John Doe - Admin'
       };
       break;
-    case 'audrie':
+    case 'basic':
       user = {
-        name: 'Audrie Adams'
+        name: 'John Doe - Basic'
       };
       break;
     default:

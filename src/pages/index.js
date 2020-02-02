@@ -26,8 +26,8 @@ const AuthModal = ({closeModal}) => {
           :
           <>
             <h1>Hi {name} Click the button to sign in.</h1>
-            <button onClick={() => signIn('stormy')}>Sign in as stormy</button>
-            <button onClick={() => signIn('audrie')}>Sign in as audrie</button>
+            <button onClick={() => signIn('admin')}>Sign in as admin</button>
+            <button onClick={() => signIn('basic')}>Sign in as basic</button>
           </>
         }
         <br/>

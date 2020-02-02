@@ -3,10 +3,13 @@ import {userFetcher} from 'lib/fetchers/userFetcher';
 import PropTypes from 'prop-types';
 
 export const UserContext = createContext({
+  basic: true,
+  hasSeenEditor: false,
   name: '',
   signedIn: false,
   signOut: () => {},
-  signIn: () => {}
+  signIn: () => {},
+  setHasSeenEditor: () => {}
 });
 
 export const UserContextProvider = (props) => {
@@ -16,11 +19,22 @@ export const UserContextProvider = (props) => {
   const [state, setState] = useState({
     name: user.name || defaultName,
     signedIn: !!user,
+    basic: user.basic || true,
+    hasSeenEditor: false,
+    setHasSeenEditor () {
+      setState((state) => {
+        return {...state,
+          hasSeenEditor: true
+        };
+      });
+    },
     signOut () {
       setState((state) => {
         return {...state,
           name: defaultName,
-          signedIn: false
+          signedIn: false,
+          basic: true,
+          hasSeenEditor: false
         };
       });
     },
@@ -35,7 +49,6 @@ export const UserContextProvider = (props) => {
       });
     }
   });
-  console.log('State:', state);
 
   return (
     <UserContext.Provider value={state}>

@@ -15,7 +15,7 @@ export const ReportContextProvider = (props) => {
         return {...initialState};
       });
     },
-    name: 'Stormys report'
+    name: 'Admins report'
   });
 
   return (
