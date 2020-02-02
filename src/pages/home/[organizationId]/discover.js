@@ -43,7 +43,7 @@ DiscoverPage.getInitialProps = async ({query}) => {
   const {organizationId} = query;
   return {
     organizationId,
-    pageTitle: `Discover`
+    pageTitle: 'Discover'
   };
 };
 

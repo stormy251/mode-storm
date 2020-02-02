@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import {ModalContext} from 'modules/app';
+import {ModalContext, UserContext} from 'modules/app';
 import {DummyLayout} from 'modules/dummy';
 import Modal from 'components/Modal';
 import {colors} from 'lib/theme';
@@ -13,18 +13,31 @@ const ModalContainer = styled.div`
 	padding: 8px;
 `;
 
-const DummyModal = ({closeModal}) => {
+const AuthModal = ({closeModal}) => {
+  const {name, signedIn, signOut, signIn} = useContext(UserContext);
   return (
     <Modal>
       <ModalContainer>
-        <h1>Hi there I am a modal</h1>
+        {signedIn ?
+          <>
+            <h1>Hi {name} Nice to see you!</h1>
+            <button onClick={signOut}>Sign out</button>
+          </>
+          :
+          <>
+            <h1>Hi {name} Click the button to sign in.</h1>
+            <button onClick={() => signIn('stormy')}>Sign in as stormy</button>
+            <button onClick={() => signIn('audrie')}>Sign in as audrie</button>
+          </>
+        }
+        <br/>
         <button onClick={closeModal}>Close Modal</button>
       </ModalContainer>
     </Modal>
   );
 };
 
-DummyModal.propTypes = {
+AuthModal.propTypes = {
   /** Method used to close the modal */
   closeModal: PropTypes.func
 };
@@ -38,7 +51,11 @@ const DummyPage = () => {
       <Link href="/home/[organizationId]/discover" as="/home/mode/discover">
         <a>To Discovery Page</a>
       </Link>
-      <button onClick={() => openModal({Component:DummyModal, props:{closeModal}})}>Open dummy modal</button>
+      <button
+        onClick={() => openModal({Component:AuthModal, props:{closeModal}})}
+      >
+        Open auth Modal
+      </button>
     </>
   );
 };

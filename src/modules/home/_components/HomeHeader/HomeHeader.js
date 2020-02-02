@@ -2,6 +2,8 @@ import React from 'react';
 import {motion} from 'framer-motion';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import Typography from 'capra/Typography';
+import {colors} from 'lib/theme';
 
 const HomeHeaderContainer = styled(motion.div)`
 	align-items: center;
@@ -18,7 +20,13 @@ const HomeHeader = (props) => {
 
   return (
     <HomeHeaderContainer>
-      {title}
+      <Typography
+        color={colors.white}
+        type="Title"
+      >
+        {title}
+      </Typography>
+
     </HomeHeaderContainer>
   );
 };

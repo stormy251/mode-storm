@@ -1,13 +1,13 @@
 @font-face {
 	font-family: 'Graphik';
 	font-weight: 400;
-	src: url('/public/fonts/Graphik-Medium.woff2') format('woff2');
+	src: url('/fonts/Graphik-Medium.woff2') format('woff2');
 }
 
 @font-face {
 	font-family: 'Graphik';
 	font-weight: 500;
-	src: url('/public/fonts/Graphik-Regular.woff2') format('woff2');
+	src: url('/fonts/Graphik-Regular.woff2') format('woff2');
 }
 
 html {

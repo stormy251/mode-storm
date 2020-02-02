@@ -1,7 +1,10 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {motion} from 'framer-motion';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import {UserContext} from 'modules/app';
+import {colors} from 'lib/theme';
+import Typography from 'capra/Typography';
 
 const SideNavContainer = styled(motion.div)`
 	background-color: #393945;
@@ -14,9 +17,24 @@ const SideNavContainer = styled(motion.div)`
 
 const SideNav = (props) => {
   const {children} = props;
+  const {name, signedIn} = useContext(UserContext);
 
   return (
     <SideNavContainer>
+      <Typography
+        color={colors.white}
+        type="Subtitle"
+      >
+        {signedIn ?
+          <span>
+            {name} is signed in!
+          </span>
+          :
+          <span>
+            Hi Guest
+          </span>
+        }
+      </Typography>
       {children}
     </SideNavContainer>
   );
