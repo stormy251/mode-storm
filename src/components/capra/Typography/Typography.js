@@ -5,7 +5,7 @@ import {colors} from 'lib/theme';
 
 export const STYLES = {
   fontWeight: {
-    medium: '200',
+    medium: '400',
     regular: '500'
   },
   fontFamilies: {

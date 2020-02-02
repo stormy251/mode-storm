@@ -5,9 +5,10 @@ import PropTypes from 'prop-types';
 import {ModalContext} from 'modules/app';
 import {DummyLayout} from 'modules/dummy';
 import Modal from 'components/Modal';
+import {colors} from 'lib/theme';
 
 const ModalContainer = styled.div`
-	background-color: #ffffff;
+	background-color: ${colors.white};
 	border-radius: 8px;
 	padding: 8px;
 `;

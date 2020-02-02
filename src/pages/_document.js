@@ -20,20 +20,6 @@ export default class MyDocument extends Document {
           <>
             {initialProps.styles}
             {sheet.getStyleElement()}
-            <style>
-              {
-                `
-                  html {
-                    font-size: 16px;
-                  }
-                  
-                  body {
-                    box-sizing: border-box;
-                    margin: 0;
-                  }
-                `
-              }
-            </style>
           </>
         )
       };

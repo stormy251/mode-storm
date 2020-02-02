@@ -1,5 +1,6 @@
-import App from 'next/app';
 import React from 'react';
+import App from 'next/app';
+import 'lib/global-styles.css'; // This will ensure that the global-styles are positioned properly in the head.
 import {
   AppLayout
 } from 'modules/app';
