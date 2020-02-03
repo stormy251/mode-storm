@@ -10,6 +10,7 @@ const HomeHeaderContainer = styled(motion.div)`
 	box-sizing: border-box;
 	display: flex;
 	height: 55px;
+	min-height: 55px;
 	padding: 0 1rem;
 	width: 100%;
 `;

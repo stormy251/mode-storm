@@ -9,11 +9,13 @@ import {
   OrganizationContextProvider,
   SpaceContextProvider
 } from 'zones/home';
+import {colors} from 'lib/theme';
 
 const HomeLayoutContainer = styled(motion.div)`
 	display: flex;
 	height: 100%;
 	width: 100%;
+	background: ${colors.gray.v200};
 `;
 
 const ContentContainer = styled(motion.div)`
@@ -28,6 +30,17 @@ const Column = styled.div`
 	flex-direction: column;
 	width: 100%;
 `;
+
+const homeVariants = {
+  hidden: {
+    opacity: 0,
+    y: 20
+  },
+  visible: {
+    opacity: 1,
+    y: 0
+  }
+};
 
 const HomeLayout = (props) => {
   const {children, transitionKey, pageTitle, organizationId, reports} = props;
@@ -47,11 +60,12 @@ const HomeLayout = (props) => {
               >
                 <ContentContainer
                   key={transitionKey}
-                  initial={{opacity:0, y: 20}}
-                  animate={{opacity:1, y: 0}}
-                  exit={{opacity:0, y: 20}}
+                  variants={homeVariants}
+                  initial="hidden"
+                  animate="visible"
+                  exit="hidden"
                   transition={{
-                    duration: 0.3
+                    staggerChildren: 0.6
                   }}
                 >
                   {children}
