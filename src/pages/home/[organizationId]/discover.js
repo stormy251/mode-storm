@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
-import {HomeLayout} from 'modules/home';
+import * as HomeZone from 'zones/home';
 
 const DiscoverPage = () => {
   return (
@@ -33,7 +33,7 @@ const DiscoverPage = () => {
   );
 };
 
-DiscoverPage.LayoutComponent = HomeLayout;
+DiscoverPage.zone = HomeZone;
 
 DiscoverPage.propTypes = {
   organizationId: PropTypes.string

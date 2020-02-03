@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import {HomeLayout} from 'modules/home';
+import * as HomeZone from 'zones/home';
 
 const ErrorPage = () => {
   return (
@@ -12,6 +12,6 @@ const ErrorPage = () => {
   );
 };
 
-ErrorPage.LayoutComponent = HomeLayout;
+ErrorPage.zone = HomeZone;
 
 export default ErrorPage;

@@ -4,7 +4,7 @@ module.exports = {
 		'^components(.*)$': '<rootDir>/src/components$1',
 		'^capra(.*)$': '<rootDir>/src/components/capra$1',
 		'^lib(.*)$': '<rootDir>/src/lib$1',
-		'^modules(.*)$': '<rootDir>/src/modules$1'
+		'^zones(.*)$': '<rootDir>/src/zones$1'
 	},
 	setupFilesAfterEnv: [
 		'@testing-library/jest-dom/extend-expect',

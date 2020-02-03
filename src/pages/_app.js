@@ -1,50 +1,45 @@
 import React from 'react';
 import App from 'next/app';
 import 'lib/global-styles.css'; // This will ensure that the global-styles are positioned properly in the head.
-import {
-  AppLayout
-} from 'modules/app';
-import {userFetcher} from 'lib/fetchers/userFetcher';
+import * as AppZone from 'zones/app';
 
 export default class MyApp extends App {
 
   static async getInitialProps ({Component, ctx}) {
-    const isServer = typeof window === 'undefined';
+    let pageProps = {};
+    let pageZoneInitData = {};
+    const appZoneInitData = await AppZone.zoneInit();
 
-    if (isServer) {
-      // Mock user API call
-      const user = await userFetcher('admin');
-
-      let pageProps = {};
-
-      if (Component.getInitialProps) {
-        pageProps = await Component.getInitialProps(ctx);
-      }
-
-      return {user, pageProps};
-    } else {
-      let pageProps = {};
-
-      if (Component.getInitialProps) {
-        pageProps = await Component.getInitialProps(ctx);
-      }
-      return {pageProps};
+    if (Component.getInitialProps) {
+      pageProps = await Component.getInitialProps(ctx);
     }
+
+    if (Component.zone) {
+      pageZoneInitData = await Component.zone.zoneInit(ctx);
+    }
+
+    return {
+      pageProps: {
+        ...pageProps,
+        ...appZoneInitData,
+        ...pageZoneInitData
+      }
+    };
   }
 
   render () {
-    const {Component, pageProps, router, user} = this.props;
-    const LayoutComponent = Component.LayoutComponent;
+    const {Component, pageProps, router} = this.props;
+    const {LayoutComponent} = Component.zone;
 
     return (
-      <AppLayout
+      <AppZone.LayoutComponent
         layoutKey={LayoutComponent.name}
-        user={user}
+        {...pageProps}
       >
-        <LayoutComponent {...pageProps} transitionKey={router.route}>
+        <LayoutComponent {...pageProps} transitionKey={router.asPath}>
           <Component {...pageProps}/>
         </LayoutComponent>
-      </AppLayout>
+      </AppZone.LayoutComponent>
     );
   }
 }

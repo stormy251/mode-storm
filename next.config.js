@@ -9,7 +9,7 @@ module.exports = {
 		config.resolve.alias['components'] = path.join(__dirname, 'src', 'components');
 		config.resolve.alias['capra'] = path.join(__dirname, 'src', 'components', 'capra');
 		config.resolve.alias['lib'] = path.join(__dirname, 'src', 'lib');
-		config.resolve.alias['modules'] = path.join(__dirname, 'src', 'modules');
+		config.resolve.alias['zones'] = path.join(__dirname, 'src', 'zones');
 		return config;
 	}
 };

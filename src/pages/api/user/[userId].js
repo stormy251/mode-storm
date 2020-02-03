@@ -4,17 +4,20 @@ export default ({query: {userId}}, res) => {
   switch(userId) {
     case 'admin':
       user = {
-        name: 'John Doe - Admin'
+        name: 'John Doe',
+        id: '111'
       };
       break;
     case 'basic':
       user = {
-        name: 'John Doe - Basic'
+        name: 'John Doe',
+        id: '222'
       };
       break;
     default:
       user = {
-        name: 'Guest'
+        name: 'Guest',
+        id: 0
       };
   }
   res.statusCode = 200;

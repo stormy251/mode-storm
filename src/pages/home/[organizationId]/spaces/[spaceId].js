@@ -1,11 +1,23 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import Link from 'next/link';
-import PropTypes from 'prop-types';
-import {HomeLayout} from 'modules/home';
+import * as HomeZone from 'zones/home';
+import Typography from 'capra/Typography';
 
 const SpacesPage = () => {
+  const {reports} = useContext(HomeZone.SpaceContext);
+
   return (
     <>
+      <div>
+        <Typography type="Title">Reports under this space:</Typography>
+        {reports.map((report, index) => <span key={report + index}>{report.name}</span>)}
+      </div>
+      <br/>
+      <br/>
+      <br/>
+      <Link href="/home/[organizationId]/spaces/[spaceId]" as="/home/mode/spaces/345">
+        <a>To Other spaces page</a>
+      </Link>
       <Link href="/home/[organizationId]/discover" as="/home/mode/discover">
         <a>To discover</a>
       </Link>
@@ -13,18 +25,12 @@ const SpacesPage = () => {
   );
 };
 
-SpacesPage.LayoutComponent = HomeLayout;
-
-SpacesPage.propTypes = {
-  organizationId: PropTypes.string,
-  spaceId: PropTypes.string
-};
+SpacesPage.zone = HomeZone;
 
 SpacesPage.getInitialProps = async ({query}) => {
   const {organizationId, spaceId} = query;
+
   return {
-    organizationId,
-    spaceId,
     pageTitle: `${organizationId}: space - ${spaceId}`
   };
 };

@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import {motion} from 'framer-motion';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import {ModalContext} from 'modules/app';
+import {ModalContext} from 'zones/app';
 
 const ModalOverlay = styled(motion.div)`
   align-items: center;

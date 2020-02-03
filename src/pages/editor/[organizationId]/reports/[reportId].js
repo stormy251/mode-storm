@@ -1,8 +1,8 @@
 import React, {useContext} from 'react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
-import {UserContext} from 'modules/app';
-import {EditorLayout} from 'modules/editor';
+import {UserContext} from 'zones/app';
+import * as EditorZone from 'zones/editor';
 
 const ReportsPage = () => {
   const {hasSeenEditor, setHasSeenEditor} = useContext(UserContext);
@@ -21,7 +21,7 @@ const ReportsPage = () => {
   );
 };
 
-ReportsPage.LayoutComponent = EditorLayout;
+ReportsPage.zone = EditorZone;
 
 ReportsPage.propTypes = {
   organizationId: PropTypes.string,

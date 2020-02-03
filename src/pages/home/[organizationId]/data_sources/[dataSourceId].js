@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
-import {HomeLayout} from 'modules/home';
+import * as HomeZone from 'zones/home';
 
 const DataSourcesPage = () => {
   return (
@@ -13,7 +13,7 @@ const DataSourcesPage = () => {
   );
 };
 
-DataSourcesPage.LayoutComponent = HomeLayout;
+DataSourcesPage.zone = HomeZone;
 
 DataSourcesPage.propTypes = {
   organizationId: PropTypes.string,
