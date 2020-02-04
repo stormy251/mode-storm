@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import * as HomeZone from 'zones/home';
 import {LaunchDarklyContext, UserContext} from 'zones/app';
-import Typography from 'components/capra/Typography';
+import Typography from 'zones/app/components/Typography';
 import {colors} from 'lib/theme';
 
 const DiscoverPageContainer = styled.div`
@@ -117,7 +117,7 @@ const DiscoverPage = () => {
         <DiscoverSideContainer>
           <DiscoverSection>
             <Typography type="Title">
-              What`&apos;`s New
+              What&apos;s New
             </Typography>
             <DiscoverNewItem>
               <a href={URLS.helixAnnouncement} target="_blank" rel="noopener noreferrer">Announcing: Helix</a>

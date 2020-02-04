@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import Link from 'next/link';
 import * as HomeZone from 'zones/home';
-import Typography from 'capra/Typography';
+import Typography from 'zones/app/components/Typography';
 
 const SpacesPage = () => {
   const {reports} = useContext(HomeZone.SpaceContext);

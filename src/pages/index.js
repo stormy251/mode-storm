@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import Link from 'next/link';
-import AuthModal from 'components/AuthModal';
+import AuthModal from 'zones/dummy/components/AuthModal';
 import {ModalContext} from 'zones/app';
 import * as DummyZone from 'zones/dummy';
 

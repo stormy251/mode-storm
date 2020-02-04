@@ -145,6 +145,6 @@ export const ColorShowcase = () => {
   tree view.
 */
 export default {
-  title: 'Capra/Typography',
+  title: 'Zones/App/Typography',
   component: Typography
 };

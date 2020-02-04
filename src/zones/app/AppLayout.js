@@ -6,8 +6,8 @@ import {
   UserContextProvider,
   LaunchDarklyContextProvider
 } from 'zones/app';
-import ModalOutlet from './_components/ModalOutlet';
-import AppContainer from './_components/AppContainer';
+import ModalOutlet from './components/ModalOutlet';
+import AppContainer from './components/AppContainer';
 
 const AppLayout = (props) => {
   const {children, layoutKey, user, flags} = props;
@@ -21,7 +21,7 @@ const AppLayout = (props) => {
           >
             <AppContainer
               key={layoutKey}
-              initial={{opacity:0}}
+              initial={false}
               animate={{opacity:1}}
               exit={{opacity:0}}
             >

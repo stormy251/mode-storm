@@ -2,7 +2,7 @@ import React from 'react';
 import {motion} from 'framer-motion';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Typography from 'capra/Typography';
+import Typography from 'zones/app/components/Typography';
 import {colors} from 'lib/theme';
 
 const EditorNavContainer = styled(motion.div)`

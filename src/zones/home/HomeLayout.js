@@ -2,8 +2,8 @@ import React from 'react';
 import {AnimatePresence, motion} from 'framer-motion';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import SideNav from './_components/SideNav';
-import HomeHeader from './_components/HomeHeader';
+import SideNav from './components/SideNav';
+import HomeHeader from './components/HomeHeader';
 import {
   DefinitionContextProvider,
   OrganizationContextProvider,

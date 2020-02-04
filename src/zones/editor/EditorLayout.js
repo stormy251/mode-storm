@@ -2,7 +2,7 @@ import React from 'react';
 import {AnimatePresence, motion} from 'framer-motion';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import EditorNav from './_components/EditorNav';
+import EditorNav from './components/EditorNav';
 import {
   NotebookContextProvider,
   QueryContextProvider,

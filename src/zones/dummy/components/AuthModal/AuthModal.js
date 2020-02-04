@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import React, {useContext} from 'react';
 import PropTypes from 'prop-types';
-import Modal from 'components/Modal';
+import Modal from 'zones/app/components/Modal';
 import {colors} from 'lib/theme';
 import {UserContext} from 'zones/app';
 

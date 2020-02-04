@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {UserContext} from 'zones/app';
 import {colors} from 'lib/theme';
-import Typography from 'capra/Typography';
+import Typography from 'zones/app/components/Typography';
 
 const SideNavContainer = styled(motion.div)`
 	background-color: #393945;

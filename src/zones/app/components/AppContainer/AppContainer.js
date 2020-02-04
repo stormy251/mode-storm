@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import {motion} from 'framer-motion';
 import PropTypes from 'prop-types';
 import {colors} from 'lib/theme';
-import Typography from 'capra/Typography';
+import Typography from 'zones/app/components/Typography';
 import {UserContext} from 'zones/app';
 
 const AppContentContainer = styled(motion.div)`
