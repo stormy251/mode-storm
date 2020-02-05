@@ -1,13 +1,21 @@
 import React from 'react';
-import {AnimatePresence} from 'framer-motion';
+import {AnimatePresence, motion} from 'framer-motion';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import {
   ModalContextProvider,
   UserContextProvider,
   LaunchDarklyContextProvider
 } from 'zones/app';
 import ModalOutlet from './components/ModalOutlet';
-import AppContainer from './components/AppContainer';
+
+const AppContainer = styled(motion.div)`
+	box-sizing: border-box;
+	height: 100%;
+	margin: 0;
+	overflow-y: hidden;
+	width: 100%;
+`;
 
 const AppLayout = (props) => {
   const {children, layoutKey, user, flags} = props;

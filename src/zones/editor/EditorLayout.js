@@ -1,66 +1,60 @@
 import React from 'react';
-import {AnimatePresence, motion} from 'framer-motion';
+import {AnimatePresence} from 'framer-motion';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import EditorNav from './components/EditorNav';
 import {
   NotebookContextProvider,
   QueryContextProvider,
   ReportContextProvider,
   VisualizationContextProvider
 } from 'zones/editor';
+import Column from 'zones/app/components/Column';
+import Row from 'zones/app/components/Row';
+import {colors} from 'lib/theme';
+import Typography from 'zones/app/components/Typography';
 
-const EditorLayoutContainer = styled(motion.div)`
-	display: flex;
-	height: 100%;
-	width: 100%;
-`;
-
-const ContentContainer = styled(motion.div)`
-	display: flex;
-	flex-direction: column;
-	height: 100%;
-	width: 100%;
-`;
-
-const Column = styled.div`
-	display: flex;
-	flex-direction: column;
-	width: 100%;
-`;
+const contentVariants = {
+  hidden: {
+    opacity: 0
+  },
+  visible: {
+    opacity: 1
+  }
+};
 
 const EditorLayout = (props) => {
   const {children, transitionKey, pageTitle} = props;
 
   return (
-    <EditorLayoutContainer>
+    <Row initial={false}>
       <NotebookContextProvider>
         <QueryContextProvider>
           <ReportContextProvider>
             <VisualizationContextProvider>
               <Column>
-                <EditorNav title={pageTitle}/>
-                <AnimatePresence
-                  exitBeforeEnter
-                >
-                  <ContentContainer
-                    key={transitionKey}
-                    initial={{opacity:0, y: 20}}
-                    animate={{opacity:1, y: 0}}
-                    exit={{opacity:0, y: 20}}
-                    transition={{
-                      duration: 0.3
-                    }}
+                <Row height={'48px'} color={colors.gray.v1100}>
+                  <Typography type="Subtitle" color={colors.white}>{pageTitle}</Typography>
+                </Row>
+                <Row>
+                  <AnimatePresence
+                    exitBeforeEnter
                   >
-                    {children}
-                  </ContentContainer>
-                </AnimatePresence>
+                    <Column
+                      key={transitionKey}
+                      variants={contentVariants}
+                      initial={'hidden'}
+                      animate={'visible'}
+                      exit={'hidden'}
+                    >
+                      {children}
+                    </Column>
+                  </AnimatePresence>
+                </Row>
               </Column>
             </VisualizationContextProvider>
           </ReportContextProvider>
         </QueryContextProvider>
       </NotebookContextProvider>
-    </EditorLayoutContainer>
+    </Row>
   );
 };
 
