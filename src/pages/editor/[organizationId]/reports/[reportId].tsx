@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
+import {ModePage} from "lib/types/ModePage";
 import Link from 'next/link';
-import PropTypes from 'prop-types';
 import {motion, AnimatePresence} from 'framer-motion';
 import styled from 'styled-components';
 import Row from 'zones/app/components/Row';
@@ -125,7 +125,7 @@ const RedBox = styled(motion.div)`
   background-color: ${colors.red.v500};
 `;
 
-const ReportsPage = () => {
+const ReportsPage:ModePage = () => {
   const [sideBarOpen, setSideBarOpen] = useState(true);
   const [expandedLeftNav, setExpandedLeftNav] = useState(true);
 
@@ -207,11 +207,6 @@ const ReportsPage = () => {
 
 ReportsPage.zone = EditorZone;
 
-ReportsPage.propTypes = {
-  organizationId: PropTypes.string,
-  reportId: PropTypes.string
-};
-
 ReportsPage.getInitialProps = async ({query}) => {
   const {organizationId, reportId} = query;
   return {
@@ -221,4 +216,5 @@ ReportsPage.getInitialProps = async ({query}) => {
   };
 };
 
+// Default export is a requirement for nextjs to know this is the export for the page.
 export default ReportsPage;

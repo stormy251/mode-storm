@@ -1,9 +1,10 @@
 import React, {useContext} from 'react';
+import {ModePage} from "lib/types/ModePage";
 import Link from 'next/link';
 import * as HomeZone from 'zones/home';
 import Typography from 'zones/app/components/Typography';
 
-const SpacesPage = () => {
+const SpacesPage:ModePage = () => {
   const {reports} = useContext(HomeZone.SpaceContext);
 
   return (
@@ -27,12 +28,5 @@ const SpacesPage = () => {
 
 SpacesPage.zone = HomeZone;
 
-SpacesPage.getInitialProps = async ({query}) => {
-  const {organizationId, spaceId} = query;
-
-  return {
-    pageTitle: `${organizationId}: space - ${spaceId}`
-  };
-};
-
+// Default export is a requirement for nextjs to know this is the export for the page.
 export default SpacesPage;

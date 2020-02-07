@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
+import {ModePage} from "lib/types/ModePage";
 import Link from 'next/link';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import * as HomeZone from 'zones/home';
 import {LaunchDarklyContext, UserContext} from 'zones/app';
@@ -60,7 +60,11 @@ const DiscoverListFooter = styled.div`
   border-top: 1px solid ${colors.gray.v300};
 `;
 
-const DiscoverPage = () => {
+interface Props {
+  pageTitle?: string;
+}
+
+const DiscoverPage:ModePage<Props> = () => {
   const {name} = useContext(UserContext);
   const {flags} = useContext(LaunchDarklyContext);
 
@@ -173,16 +177,11 @@ const DiscoverPage = () => {
 
 DiscoverPage.zone = HomeZone;
 
-DiscoverPage.propTypes = {
-  organizationId: PropTypes.string
-};
-
-DiscoverPage.getInitialProps = async ({query}) => {
-  const {organizationId} = query;
+DiscoverPage.getInitialProps = async (ctx) => {
   return {
-    organizationId,
     pageTitle: 'Discover'
   };
 };
 
+// Default export is a requirement for nextjs to know this is the export for the page.
 export default DiscoverPage;

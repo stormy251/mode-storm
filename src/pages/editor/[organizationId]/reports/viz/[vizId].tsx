@@ -1,10 +1,10 @@
 import React, {useContext} from 'react';
+import {ModePage} from "lib/types/ModePage";
 import Link from 'next/link';
-import PropTypes from 'prop-types';
 import {UserContext} from 'zones/app';
 import * as EditorZone from 'zones/editor';
 
-const ReportsPage = () => {
+const VisualizationPage:ModePage = () => {
   const {hasSeenEditor, setHasSeenEditor} = useContext(UserContext);
 
   if (!hasSeenEditor) {
@@ -21,20 +21,7 @@ const ReportsPage = () => {
   );
 };
 
-ReportsPage.zone = EditorZone;
+VisualizationPage.zone = EditorZone;
 
-ReportsPage.propTypes = {
-  organizationId: PropTypes.string,
-  reportId: PropTypes.string
-};
-
-ReportsPage.getInitialProps = async ({query}) => {
-  const {organizationId, reportId} = query;
-  return {
-    organizationId,
-    reportId,
-    pageTitle: `ReportID - ${reportId} for Org: ${organizationId}`
-  };
-};
-
-export default ReportsPage;
+// Default export is a requirement for nextjs to know this is the export for the page.
+export default VisualizationPage;

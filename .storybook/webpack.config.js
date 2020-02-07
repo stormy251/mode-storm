@@ -18,8 +18,6 @@ module.exports = {
   },
   resolve: {
     alias: {
-      components: path.join(__dirname, '..', 'src', 'components'),
-      capra: path.join(__dirname, '..', 'src', 'components', 'capra'),
       lib: path.join(__dirname, '..', 'src', 'lib'),
       zones: path.join(__dirname, '..', 'src', 'zones')
     }

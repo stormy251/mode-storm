@@ -19,24 +19,29 @@
   },
   "dependencies": {
     "framer-motion": "1.8.3",
+    "isomorphic-unfetch": "3.0.0",
     "next": "latest",
     "now": "^16.7.3",
     "prop-types": "15.7.2",
     "react": "16.12.0",
     "react-dom": "16.12.0",
-    "styled-components": "5.0.0",
-    "isomorphic-unfetch": "3.0.0"
+    "styled-components": "5.0.0"
   },
   "devDependencies": {
     "@babel/core": "7.8.4",
-    "babel-plugin-styled-components": "1.8.0",
-    "babel-eslint": "10.0.3",
     "@storybook/addon-a11y": "5.3.9",
     "@storybook/addon-backgrounds": "5.3.9",
     "@storybook/addon-docs": "5.3.9",
     "@storybook/addon-viewport": "5.3.9",
     "@storybook/addons": "5.3.9",
     "@storybook/react": "5.3.9",
+    "@testing-library/jest-dom": "5.1.0",
+    "@testing-library/react": "9.4.0",
+    "@types/node": "13.7.0",
+    "@types/react": "^16.9.19",
+    "@types/styled-components": "^4.4.2",
+    "babel-eslint": "10.0.3",
+    "babel-plugin-styled-components": "1.8.0",
     "eslint": "6.8.0",
     "eslint-plugin-import": "2.20.0",
     "eslint-plugin-node": "11.0.0",
@@ -44,10 +49,9 @@
     "eslint-plugin-react": "7.18.0",
     "eslint-plugin-react-hooks": "2.3.0",
     "husky": "4.2.1",
-    "@testing-library/react": "9.4.0",
-    "@testing-library/jest-dom": "5.1.0",
     "jest": "25.1.0",
-    "jest-styled-components": "7.0.0"
+    "jest-styled-components": "7.0.0",
+    "typescript": "3.7.5"
   },
   "license": "ISC"
 }
