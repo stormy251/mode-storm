@@ -19,8 +19,12 @@
     "jsx": "preserve",
     "baseUrl": "src",
     "paths": {
-      "lib/*": ["lib/*"],
-      "zones/*": ["zones/*"]
+      "lib/*": [
+        "lib/*"
+      ],
+      "zones/*": [
+        "zones/*"
+      ]
     }
   },
   "exclude": [
