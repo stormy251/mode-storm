@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
-import {ModePage} from 'lib/types/ModePage';
+import {ModePage} from 'zones/app/types/ModePage';
 import Link from 'next/link';
 import {motion, AnimatePresence} from 'framer-motion';
 import styled from 'styled-components';
 import Row from 'zones/app/components/Row';
 import Column from 'zones/app/components/Column';
 import {colors} from 'lib/theme';
-import * as EditorZone from 'zones/editor';
+import EditorZone from 'zones/editor';
 import Typography from 'zones/app/components/Typography';
 
 const sectionVariants = {

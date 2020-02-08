@@ -1,7 +1,7 @@
 import React, {ReactNode, Ref, useContext} from 'react';
 import {motion} from 'framer-motion';
 import styled from 'styled-components';
-import {ModalContext} from 'zones/app';
+import {ModalContext} from 'zones/app/contexts/ModalContext';
 
 const ModalOverlay = styled(motion.div)`
   align-items: center;

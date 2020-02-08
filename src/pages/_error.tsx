@@ -1,7 +1,7 @@
 import React from 'react';
-import {ModePage} from 'lib/types/ModePage';
+import {ModePage} from 'zones/app/types/ModePage';
 import Link from 'next/link';
-import * as HomeZone from 'zones/home';
+import HomeZone from 'zones/home';
 
 // This page is used for our 404/page-not-found management
 const ErrorPage: ModePage = () => {

@@ -1,12 +1,13 @@
+import {ModePage} from 'zones/app/types/ModePage';
+import {NextRouter} from 'next/router';
 import React from 'react';
 import 'lib/global-styles.css'; // This will ensure that the global-styles are positioned properly in the head.
-import * as AppZone from 'zones/app';
-import {ModePage} from 'lib/types/ModePage';
-import {NextRouter} from 'next/router';
+import AppLayout from 'zones/app/AppLayout';
+import AppZone from 'zones/app';
 
 interface Props {
   Component?: ModePage;
-  pageProps?: object;
+  pageProps?: any;
   router: NextRouter;
 }
 
@@ -14,14 +15,14 @@ const ModeStorm = ({Component, pageProps, router}: Props) => {
   const {LayoutComponent} = Component.zone;
 
   return (
-    <AppZone.LayoutComponent
+    <AppLayout
       layoutKey={LayoutComponent.name}
       {...pageProps}
     >
       <LayoutComponent {...pageProps} transitionKey={router.asPath}>
         <Component {...pageProps}/>
       </LayoutComponent>
-    </AppZone.LayoutComponent>
+    </AppLayout>
   );
 };
 
@@ -34,7 +35,7 @@ ModeStorm.getInitialProps = async function ({Component, ctx}) {
     pageProps = await Component.getInitialProps(ctx);
   }
 
-  if (Component.zone) {
+  if (Component.zoneInit) {
     pageZoneInitData = await Component.zone.zoneInit(ctx);
   }
 

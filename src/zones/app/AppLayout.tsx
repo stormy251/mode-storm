@@ -1,13 +1,21 @@
-import React from 'react';
+import React, {ReactNode} from 'react';
 import {AnimatePresence, motion} from 'framer-motion';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import {
-  ModalContextProvider,
-  UserContextProvider,
-  LaunchDarklyContextProvider
-} from 'zones/app';
+import {LaunchDarklyContextProvider} from './contexts/LaunchDarklyContext';
+import {ModalContextProvider} from './contexts/ModalContext';
+import {UserContextProvider} from './contexts/UserContext';
 import ModalOutlet from './components/ModalOutlet';
+
+export interface AppLayoutProps {
+  /** Must be a single React node, it cannot contain a React fragment */
+  children: ReactNode;
+  /** String representing the layout type */
+  layoutKey: string;
+  /** Object representing the launch darkly flags for the current user */
+  flags: any;
+  /** Object representing the information about the current user */
+  user: any;
+}
 
 const AppContainer = styled(motion.div)`
 	box-sizing: border-box;
@@ -17,7 +25,12 @@ const AppContainer = styled(motion.div)`
 	width: 100%;
 `;
 
-const AppLayout = (props) => {
+
+/**
+ * This component is responsible for managing layout changes,
+ * as well as facilitating a predictable pattern for global services such as modals/notifications/etc...
+ */
+const AppLayout = (props: AppLayoutProps) => {
   const {children, layoutKey, user, flags} = props;
 
   return (
@@ -41,17 +54,6 @@ const AppLayout = (props) => {
       </UserContextProvider>
     </LaunchDarklyContextProvider>
   );
-};
-
-AppLayout.propTypes = {
-  /** Any React node */
-  children: PropTypes.node,
-  /** String representing the layout type */
-  layoutKey: PropTypes.string,
-  /** Object representing the launch darkly flags for the current user */
-  flags: PropTypes.object,
-  /** Object representing the information about the current user */
-  user: PropTypes.object
 };
 
 export default AppLayout;

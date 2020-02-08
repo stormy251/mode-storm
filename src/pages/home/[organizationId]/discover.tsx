@@ -1,9 +1,10 @@
 import React, {useContext} from 'react';
-import {ModePage} from 'lib/types/ModePage';
+import {ModePage} from 'zones/app/types/ModePage';
 import Link from 'next/link';
 import styled from 'styled-components';
-import * as HomeZone from 'zones/home';
-import {LaunchDarklyContext, UserContext} from 'zones/app';
+import HomeZone from 'zones/home';
+import {UserContext} from 'zones/app/contexts/UserContext';
+import {LaunchDarklyContext} from 'zones/app/contexts/LaunchDarklyContext';
 import Typography from 'zones/app/components/Typography';
 import {colors} from 'lib/theme';
 

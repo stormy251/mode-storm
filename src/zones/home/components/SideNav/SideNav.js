@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import {motion} from 'framer-motion';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import {UserContext} from 'zones/app';
+import {UserContext} from 'zones/app/contexts/UserContext';
 import {colors} from 'lib/theme';
 import Typography from 'zones/app/components/Typography';
 

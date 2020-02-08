@@ -1,8 +1,8 @@
 import React from 'react';
-import {ModePage} from 'lib/types/ModePage';
+import {ModePage} from 'zones/app/types/ModePage';
 import Link from 'next/link';
 import Typography from 'zones/app/components/Typography';
-import * as HomeZone from 'zones/home';
+import HomeZone from 'zones/home';
 
 interface Props {
   pageTitle?: string;

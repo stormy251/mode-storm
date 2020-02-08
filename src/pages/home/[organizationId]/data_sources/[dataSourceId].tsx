@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
-import * as HomeZone from 'zones/home';
-import {ModePage} from 'lib/types/ModePage';
+import HomeZone from 'zones/home';
+import {ModePage} from 'zones/app/types/ModePage';
 
 const DataSourcesPage: ModePage = () => {
   return (

@@ -1,15 +1,20 @@
 import React, {createContext, ReactNode, useState} from 'react';
 import {launchDarklyFetcher} from 'lib/fetchers/launchDarklyFetcher';
 
-export interface LaunchDarklyContext {
+export interface LaunchDarklyContextProps {
   /** Must be a single React node, it cannot contain a React fragment */
   children?: ReactNode;
   /** flags object detailing the users launch darkly features */
   flags?: any;
 }
 
+export interface LaunchDarklyContext {
+  /** flags object detailing the users launch darkly features */
+  flags?: any;
+}
+
 /** Method used to fetch a users feature flags */
-export const launchDarklyInit = async (user): Promise<LaunchDarklyContext> => {
+export const launchDarklyInit = async (user): Promise<LaunchDarklyContextProps> => {
   const initData = {
     flags: {}
   };
@@ -22,7 +27,7 @@ export const LaunchDarklyContext = createContext({
   flags: null
 });
 
-export const LaunchDarklyContextProvider = (props: LaunchDarklyContext) => {
+export const LaunchDarklyContextProvider = (props: LaunchDarklyContextProps) => {
   const {children, flags} = props;
 
   const [state] = useState({

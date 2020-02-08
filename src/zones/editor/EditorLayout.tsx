@@ -1,12 +1,9 @@
-import React from 'react';
+import React, {ReactNode} from 'react';
 import {AnimatePresence} from 'framer-motion';
-import PropTypes from 'prop-types';
-import {
-  NotebookContextProvider,
-  QueryContextProvider,
-  ReportContextProvider,
-  VisualizationContextProvider
-} from 'zones/editor';
+import {NotebookContextProvider} from './contexts/NotebookContext';
+import {QueryContextProvider} from './contexts/QueryContext';
+import {ReportContextProvider} from './contexts/ReportContext';
+import {VisualizationContextProvider} from './contexts/VisualizationContext';
 import Column from 'zones/app/components/Column';
 import Row from 'zones/app/components/Row';
 import {colors} from 'lib/theme';
@@ -21,7 +18,19 @@ const contentVariants = {
   }
 };
 
-const EditorLayout = (props) => {
+
+export interface EditorLayoutProps {
+  /** Must be a single React node, it cannot contain a React fragment */
+  children: ReactNode;
+  /** String representing the requested route name */
+  transitionKey: string;
+  /** String representing the page name */
+  pageTitle: string;
+  /** String representing the name of the current organization */
+  organizationId: string;
+}
+
+const EditorLayout = (props: EditorLayoutProps) => {
   const {children, transitionKey, pageTitle} = props;
 
   return (
@@ -56,17 +65,6 @@ const EditorLayout = (props) => {
       </NotebookContextProvider>
     </Row>
   );
-};
-
-EditorLayout.propTypes = {
-  /** Any React node */
-  children: PropTypes.node,
-  /** String representing the requested route name */
-  transitionKey: PropTypes.string,
-  /** String representing the page name */
-  pageTitle: PropTypes.string,
-  /** String representing the name of the current organization */
-  organizationId: PropTypes.string
 };
 
 export default EditorLayout;

@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import {AnimatePresence} from 'framer-motion';
-import {ModalContext} from 'zones/app';
+import {ModalContext} from 'zones/app/contexts/ModalContext';
 
 /** Component used to render the stack of modals for the application. */
 const ModalOutlet = () => {

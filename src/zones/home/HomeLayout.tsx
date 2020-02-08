@@ -1,14 +1,11 @@
-import React from 'react';
+import React, {ReactNode} from 'react';
 import {AnimatePresence, motion} from 'framer-motion';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import SideNav from './components/SideNav';
 import HomeHeader from './components/HomeHeader';
-import {
-  DefinitionContextProvider,
-  OrganizationContextProvider,
-  SpaceContextProvider
-} from 'zones/home';
+import {DefinitionContextProvider} from './contexts/DefinitionContext';
+import {OrganizationContextProvider} from './contexts/OrganizationContext';
+import {SpaceContextProvider} from './contexts/SpaceContext';
 import {colors} from 'lib/theme';
 
 const HomeLayoutContainer = styled(motion.div)`
@@ -42,7 +39,20 @@ const homeVariants = {
   }
 };
 
-const HomeLayout = (props) => {
+export interface HomeLayoutProps {
+  /** Must be a single React node, it cannot contain a React fragment */
+  children: ReactNode;
+  /** String representing the requested route name */
+  transitionKey: string;
+  /** String representing the page name */
+  pageTitle: string;
+  /** String representing the name of the current organization */
+  organizationId: string;
+  /** Array of report objs for the given space */
+  reports: any[];
+}
+
+const HomeLayout = (props: HomeLayoutProps) => {
   const {children, transitionKey, pageTitle, organizationId, reports} = props;
 
   return (
@@ -77,19 +87,6 @@ const HomeLayout = (props) => {
       </OrganizationContextProvider>
     </HomeLayoutContainer>
   );
-};
-
-HomeLayout.propTypes = {
-  /** Any React node */
-  children: PropTypes.node,
-  /** String representing the requested route name */
-  transitionKey: PropTypes.string,
-  /** String representing the page name */
-  pageTitle: PropTypes.string,
-  /** String representing the name of the current organization */
-  organizationId: PropTypes.string,
-  /** Array of report objs for the given space */
-  reports: PropTypes.array
 };
 
 export default HomeLayout;
