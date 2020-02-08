@@ -4,6 +4,9 @@ import Column from 'zones/app/components/Column';
 import Row from 'zones/app/components/Row';
 import {colors} from 'lib/theme';
 import Typography from 'zones/app/components/Typography';
+import {ReportContextProvider} from "zones/editor/contexts/ReportContext";
+import LeftSideNav from './components/LeftSideNav'
+import QueryNavigatorBar from "./components/QueryNavigatorBar";
 
 const contentVariants = {
   hidden: {
@@ -14,7 +17,6 @@ const contentVariants = {
   }
 };
 
-
 export interface EditorLayoutProps {
   /** Must be a single React node, it cannot contain a React fragment */
   children: ReactNode;
@@ -24,31 +26,39 @@ export interface EditorLayoutProps {
   pageTitle: string;
   /** String representing the name of the current organization */
   organizationId: string;
+  /** String representing the name of the current organization */
+  queries: any[];
 }
 
 const EditorLayout = (props: EditorLayoutProps) => {
-  const {children, transitionKey, pageTitle} = props;
+  const {children, transitionKey, pageTitle, queries} = props;
 
   return (
     <Column initial={false}>
-      <Row height={'48px'} color={colors.gray.v1100}>
-        <Typography type="Subtitle" color={colors.white}>{pageTitle}</Typography>
-      </Row>
-      <Row>
-        <AnimatePresence
-          exitBeforeEnter
-        >
-          <Column
-            key={transitionKey}
-            variants={contentVariants}
-            initial={'hidden'}
-            animate={'visible'}
-            exit={'hidden'}
+      <ReportContextProvider queries={queries}>
+        <Row height={'48px'} color={colors.gray.v1100}>
+          <Typography type="Subtitle" color={colors.white}>{pageTitle}</Typography>
+        </Row>
+        <Row>
+          <AnimatePresence
+            exitBeforeEnter
           >
-            {children}
-          </Column>
-        </AnimatePresence>
-      </Row>
+            <Row
+              key={transitionKey}
+              variants={contentVariants}
+              initial={'hidden'}
+              animate={'visible'}
+              exit={'hidden'}
+            >
+              <LeftSideNav/>
+              <Column>
+                <QueryNavigatorBar/>
+                {children}
+              </Column>
+            </Row>
+          </AnimatePresence>
+        </Row>
+      </ReportContextProvider>
     </Column>
   );
 };

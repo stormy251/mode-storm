@@ -35,7 +35,7 @@ ModeStorm.getInitialProps = async function ({Component, ctx}) {
     pageProps = await Component.getInitialProps(ctx);
   }
 
-  if (Component.zoneInit) {
+  if (Component.zone.zoneInit) {
     pageZoneInitData = await Component.zone.zoneInit(ctx);
   }
 
