@@ -1,7 +1,8 @@
 import {spaceInit} from './contexts/SpaceContext';
 import HomeLayout from './HomeLayout';
+import {ModeZone} from 'lib/types/ModeZone';
 
-const HomeZone = {
+const HomeZone: ModeZone = {
   zoneInit: async ({query}) => {
     const spaceInitData = await spaceInit(query.spaceId);
 

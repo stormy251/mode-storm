@@ -1,6 +1,7 @@
 import EditorLayout from './EditorLayout';
+import {ModeZone} from 'lib/types/ModeZone';
 
-const EditorZone = {
+const EditorZone: ModeZone = {
   zoneInit: async () => {
     return {};
   },

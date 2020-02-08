@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {ModePage} from 'zones/app/types/ModePage';
+import {ModePage} from 'lib/types/ModePage';
 import Link from 'next/link';
 import {motion, AnimatePresence} from 'framer-motion';
 import styled from 'styled-components';

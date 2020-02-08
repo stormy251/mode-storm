@@ -1,4 +1,4 @@
-import {ModePage} from 'zones/app/types/ModePage';
+import {ModePage} from 'lib/types/ModePage';
 import {NextRouter} from 'next/router';
 import React from 'react';
 import 'lib/global-styles.css'; // This will ensure that the global-styles are positioned properly in the head.

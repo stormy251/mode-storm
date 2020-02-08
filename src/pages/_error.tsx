@@ -1,5 +1,5 @@
 import React from 'react';
-import {ModePage} from 'zones/app/types/ModePage';
+import {ModePage} from 'lib/types/ModePage';
 import Link from 'next/link';
 import HomeZone from 'zones/home';
 
