@@ -3,13 +3,13 @@ import {motion} from 'framer-motion';
 import {colors} from 'lib/theme';
 
 const Column = styled(motion.div)<{
-  color?: string,
-  borderBottom?: boolean,
-  borderLeft?: boolean,
-  borderRight?: boolean,
-  borderTop?: boolean,
-  width?: string
-  height?: string
+  color?: string;
+  borderBottom?: boolean;
+  borderLeft?: boolean;
+  borderRight?: boolean;
+  borderTop?: boolean;
+  width?: string;
+  height?: string;
 }>`
 	box-sizing: border-box;
 	background-color: ${({color}) => color ? color : null};

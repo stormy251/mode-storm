@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import {ModePage} from "lib/types/ModePage";
+import {ModePage} from 'lib/types/ModePage';
 import Link from 'next/link';
 import styled from 'styled-components';
 import * as HomeZone from 'zones/home';
@@ -64,7 +64,7 @@ interface Props {
   pageTitle?: string;
 }
 
-const DiscoverPage:ModePage<Props> = () => {
+const DiscoverPage: ModePage<Props> = () => {
   const {name} = useContext(UserContext);
   const {flags} = useContext(LaunchDarklyContext);
 

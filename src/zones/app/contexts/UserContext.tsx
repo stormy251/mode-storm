@@ -1,9 +1,32 @@
-import React, {createContext, useState} from 'react';
+import React, {createContext, ReactNode, useState} from 'react';
 import {userFetcher} from 'lib/fetchers/userFetcher';
-import PropTypes from 'prop-types';
 
-export const userInit = async () => {
-  let initData = {
+export interface UserContextProviderProps {
+  /** Must be a single React node, it cannot contain a React fragment */
+  children?: ReactNode;
+  /** user object detailing the information about the current user */
+  user?: any;
+}
+
+export interface UserContext {
+  /** If the user is basic or not tehe */
+  basic?: boolean;
+  /** If the user has seen a viz or an editor page */
+  hasSeenEditor?: boolean;
+  /** The current users name */
+  name?: string;
+  /** If the current user is signed in or not */
+  signedIn?: boolean;
+  /** Sign the current user out */
+  signOut?: Function;
+  /** Sign a new user in */
+  signIn?: (userId: string) => {};
+  /** Records if the current user has seen an editor or visualization page */
+  setHasSeenEditor?: Function;
+}
+
+export const userInit = async (): Promise<UserContextProviderProps> => {
+  const initData = {
     user: {}
   };
   const isServer = typeof window === 'undefined';
@@ -22,11 +45,11 @@ export const UserContext = createContext({
   name: '',
   signedIn: false,
   signOut: () => {},
-  signIn: () => {},
+  signIn: (userId: string) => {},
   setHasSeenEditor: () => {}
 });
 
-export const UserContextProvider = (props) => {
+export const UserContextProvider = (props: UserContextProviderProps) => {
   const {children, user} = props;
 
   const [state, setState] = useState({
@@ -34,14 +57,14 @@ export const UserContextProvider = (props) => {
     signedIn: !!user,
     basic: user.basic || true,
     hasSeenEditor: false,
-    setHasSeenEditor () {
+    setHasSeenEditor (): void {
       setState((state) => {
         return {...state,
           hasSeenEditor: true
         };
       });
     },
-    signOut () {
+    signOut (): void {
       setState((state) => {
         return {...state,
           name: undefined,
@@ -51,7 +74,7 @@ export const UserContextProvider = (props) => {
         };
       });
     },
-    async signIn (userId) {
+    async signIn (userId: string): Promise<void> {
       const user = await userFetcher(userId);
 
       setState((state) => {
@@ -68,16 +91,4 @@ export const UserContextProvider = (props) => {
       {children}
     </UserContext.Provider>
   );
-};
-
-UserContextProvider.defaultProps = {
-  children: null,
-  user: {}
-};
-
-UserContextProvider.propTypes = {
-  /** Any React node */
-  children: PropTypes.node,
-  /** Object representing the information about the current user */
-  user: PropTypes.object
 };

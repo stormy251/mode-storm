@@ -1,10 +1,10 @@
 import React, {useContext} from 'react';
-import {ModePage} from "lib/types/ModePage";
+import {ModePage} from 'lib/types/ModePage';
 import Link from 'next/link';
 import * as HomeZone from 'zones/home';
 import Typography from 'zones/app/components/Typography';
 
-const SpacesPage:ModePage = () => {
+const SpacesPage: ModePage = () => {
   const {reports} = useContext(HomeZone.SpaceContext);
 
   return (

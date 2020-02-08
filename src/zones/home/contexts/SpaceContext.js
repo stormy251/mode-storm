@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {spaceFetcher} from 'lib/fetchers/spaceFetcher';
 
 export const spaceInit = async (spaceId) => {
-  let initData = {
+  const initData = {
     reports: []
   };
 

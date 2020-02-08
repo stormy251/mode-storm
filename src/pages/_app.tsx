@@ -1,8 +1,16 @@
 import React from 'react';
 import 'lib/global-styles.css'; // This will ensure that the global-styles are positioned properly in the head.
 import * as AppZone from 'zones/app';
+import {ModePage} from 'lib/types/ModePage';
+import {NextRouter} from 'next/router';
 
-const ModeStorm = ({Component, pageProps, router}) => {
+interface Props {
+  Component?: ModePage;
+  pageProps?: object;
+  router: NextRouter;
+}
+
+const ModeStorm = ({Component, pageProps, router}: Props) => {
   const {LayoutComponent} = Component.zone;
 
   return (

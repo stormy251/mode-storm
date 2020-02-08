@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {ModePage} from "lib/types/ModePage";
+import {ModePage} from 'lib/types/ModePage';
 import Link from 'next/link';
 import {motion, AnimatePresence} from 'framer-motion';
 import styled from 'styled-components';
@@ -125,7 +125,7 @@ const RedBox = styled(motion.div)`
   background-color: ${colors.red.v500};
 `;
 
-const ReportsPage:ModePage = () => {
+const ReportsPage: ModePage = () => {
   const [sideBarOpen, setSideBarOpen] = useState(true);
   const [expandedLeftNav, setExpandedLeftNav] = useState(true);
 

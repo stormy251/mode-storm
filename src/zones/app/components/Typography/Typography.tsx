@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {ReactNode} from 'react';
 import PropTypes from 'prop-types';
 import styled, {css} from 'styled-components';
 import {colors} from 'lib/theme';
@@ -14,7 +14,7 @@ export const STYLES = {
   }
 };
 
-const typographyPropsMixin = ({align, color, display, marginBottom, noWrap}) => {
+const typographyPropsMixin = ({align, color, display, marginBottom, noWrap}: Props) => {
   return css`
     color: ${() => color};
     display: ${display ? display : 'inherit'};
@@ -32,7 +32,7 @@ const DisplayText = styled.h1`
   font-weight: ${STYLES.fontWeight.medium};
   letter-spacing: 0;
   line-height: 36px;
-  ${(props) => typographyPropsMixin(props)}
+  ${(props: Props) => typographyPropsMixin(props)}
 `;
 
 const HeaderText = styled.h2`
@@ -41,7 +41,7 @@ const HeaderText = styled.h2`
   font-weight: ${STYLES.fontWeight.regular};
   letter-spacing: 0;
   line-height: 26px;
-  ${(props) => typographyPropsMixin(props)}
+  ${(props: Props) => typographyPropsMixin(props)}
 `;
 
 const HeroText = styled.h3`
@@ -50,7 +50,7 @@ const HeroText = styled.h3`
   font-weight: ${STYLES.fontWeight.regular};
   letter-spacing: 0;
   line-height: 26px;
-  ${(props) => typographyPropsMixin(props)}
+  ${(props: Props) => typographyPropsMixin(props)}
 `;
 
 const TitleText = styled.h4`
@@ -59,7 +59,7 @@ const TitleText = styled.h4`
   font-weight: ${STYLES.fontWeight.regular};
   letter-spacing: 0;
   line-height: 20px;
-  ${(props) => typographyPropsMixin(props)}
+  ${(props: Props) => typographyPropsMixin(props)}
 `;
 
 const SubtitleText = styled.h5`
@@ -68,7 +68,7 @@ const SubtitleText = styled.h5`
   font-weight: ${STYLES.fontWeight.regular};
   letter-spacing: 0;
   line-height: 20px;
-  ${(props) => typographyPropsMixin(props)}
+  ${(props: Props) => typographyPropsMixin(props)}
 `;
 
 const BodyText = styled.p`
@@ -77,7 +77,7 @@ const BodyText = styled.p`
   font-weight: ${STYLES.fontWeight.regular};
   letter-spacing: 0;
   line-height: 16px;
-  ${(props) => typographyPropsMixin(props)}
+  ${(props: Props) => typographyPropsMixin(props)}
 `;
 
 const SectionText = styled.p`
@@ -87,7 +87,7 @@ const SectionText = styled.p`
   letter-spacing: 0.8px;
   line-height: 13px;
   text-transform: uppercase;
-  ${(props) => typographyPropsMixin(props)}
+  ${(props: Props) => typographyPropsMixin(props)}
 `;
 
 const CaptionText = styled.p`
@@ -96,7 +96,7 @@ const CaptionText = styled.p`
   font-weight: ${STYLES.fontWeight.regular};
   letter-spacing: 0;
   line-height: 12px;
-  ${(props) => typographyPropsMixin(props)}
+  ${(props: Props) => typographyPropsMixin(props)}
 `;
 
 const typographyTypeMap = {
@@ -110,54 +110,35 @@ const typographyTypeMap = {
   'Caption': CaptionText
 };
 
+export interface Props {
+  /** Must be a single React node, it cannot contain a React fragment */
+  children?: ReactNode;
+  /** Sets the text-align css property */
+  align?: 'center' | 'inherit' | 'left' | 'right' | 'justify';
+  /** Sets the color css property */
+  color?: string;
+  /** Sets the display css property */
+  display?: 'inherit' | 'initial' | 'block' | 'inline' | 'inline-block';
+  /** Sets the bottom margin of the element to a CSS string value */
+  marginBottom?: string;
+  /** Sets the fixed width on the text containing element, as well as all the appropriate CSS to apply an ending ellipsis */
+  noWrap?: boolean;
+  /** Sets the core styles of the text to the predefined typography types */
+  type: 'Display' | 'Header' | 'Hero' | 'Title' | 'Subtitle' | 'Body' | 'Section' | 'Caption';
+}
+
 /** The Typography component is responsible for ensuring all text rendered in the application is consistent. */
-const Typography = (props) => {
-  const {type, children, ...RemainingProps} = props;
+const Typography = (props: Props) => {
+  const {type, children} = props;
   const TypographyComponent = typographyTypeMap[type] || typographyTypeMap['Body'];
 
   return (
     <TypographyComponent
-      {...RemainingProps}
+      {...props}
     >
       {children}
     </TypographyComponent>
   );
-};
-
-Typography.defaultProps = {
-  align: 'inherit',
-  children: null,
-  color: colors.gray.v1200,
-  display: 'inherit',
-  marginBottom: '0',
-  noWrap: false,
-  type: 'Body-1'
-};
-
-Typography.propTypes = {
-  /** Sets the text-align css property */
-  align: PropTypes.oneOf(['center', 'inherit', 'left', 'right', 'justify']),
-  /** Any React node */
-  children: PropTypes.node,
-  /** Sets the color css property */
-  color: PropTypes.string,
-  /** Sets the display css property */
-  display: PropTypes.oneOf(['inherit', 'initial', 'block', 'inline', 'inline-block']),
-  /** Sets the bottom margin of the element to a CSS string value */
-  marginBottom: PropTypes.string,
-  /** Sets the fixed width on the text containing element, as well as all the appropriate CSS to apply an ending ellipsis */
-  noWrap: PropTypes.bool,
-  /** Sets the core styles of the text to the predefined typography types */
-  type: PropTypes.oneOf([
-    'Display',
-    'Header',
-    'Hero',
-    'Title',
-    'Subtitle',
-    'Body',
-    'Section',
-    'Caption'
-  ])
 };
 
 export default Typography;

@@ -4,7 +4,7 @@ import Link from 'next/link';
 import * as HomeZone from 'zones/home';
 
 // This page is used for our 404/page-not-found management
-const ErrorPage:ModePage = () => {
+const ErrorPage: ModePage = () => {
   return (
     <>
       <Link href="/">

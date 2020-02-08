@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-unfetch';
 
-export const launchDarklyFetcher = async (user) => {
+export const launchDarklyFetcher = async (user): Promise<any> => {
   let flags = {};
   const {id} = user;
 

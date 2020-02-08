@@ -2,13 +2,7 @@ import React, {useState} from 'react';
 import styled from 'styled-components';
 import Typography from './Typography';
 import {colors} from 'lib/theme';
-
-const StoryRow = styled.div`
-  align-items: center;
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-`;
+import {Row} from 'zones/app/components/Row';
 
 const StoryColumn = styled.div`
   > * {
@@ -77,9 +71,9 @@ export const AlignShowcase = () => {
 
   return (
     <div>
-      <StoryRow>
+      <Row align={'center'} width={'100%'} justify={'space-around'}>
         {alignTypes.map((type) => <button key={type} onClick={() => setAlignType(type)}>{type}</button>)}
-      </StoryRow>
+      </Row>
       <Typography
         type="Body"
         align={alignType}
@@ -96,9 +90,9 @@ export const MarginBottomShowcase = () => {
 
   return (
     <div>
-      <StoryRow>
+      <Row align={'center'} width={'100%'} justify={'space-around'}>
         {marginBottomValues.map((value) => <button key={value} onClick={() => setMarginBottom(value)}>{value}</button>)}
-      </StoryRow>
+      </Row>
       <Typography
         type="Body"
         marginBottom={marginBottom}

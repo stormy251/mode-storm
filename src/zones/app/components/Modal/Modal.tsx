@@ -17,17 +17,17 @@ const ModalOverlay = styled(motion.div)`
 
 export interface Props {
   /** Must be a single React node, it cannot contain a React fragment */
-  children?: ReactNode,
+  children?: ReactNode;
   /** The hidden motion variant desired to animate the content of the modal out of view */
-  contentHidden?: object,
+  contentHidden?: object;
   /** The visible motion variant desired to animate the content of the modal into view */
-  contentVisible?: object,
+  contentVisible?: object;
   /** This controls if a click on the overlay should close the modal or not */
-  dismissible?: boolean,
+  dismissible?: boolean;
   /** The hidden motion variant desired to animate the content of the modal out of view */
-  overlayHidden?: object,
+  overlayHidden?: object;
   /** The visible motion variant desired to animate the content of the modal into view */
-  overlayVisible?: object
+  overlayVisible?: object;
 }
 
 /**
@@ -67,7 +67,7 @@ const Modal = (props: Props) => {
   const overlayVariants = {hidden: overlayHidden, visible: overlayVisible};
 
   /** This ref is used to track outside clicks from the current active modal */
-  const overlayRef:Ref<HTMLDivElement> = React.createRef();
+  const overlayRef: Ref<HTMLDivElement> = React.createRef();
 
   /** Logic to ensure the modal is reacting appropriately to overlay clicks */
   const handleOverlayClick = (event): void => {

@@ -1,10 +1,10 @@
 import React, {useContext} from 'react';
-import {ModePage} from "lib/types/ModePage";
+import {ModePage} from 'lib/types/ModePage';
 import Link from 'next/link';
 import {UserContext} from 'zones/app';
 import * as EditorZone from 'zones/editor';
 
-const VisualizationPage:ModePage = () => {
+const VisualizationPage: ModePage = () => {
   const {hasSeenEditor, setHasSeenEditor} = useContext(UserContext);
 
   if (!hasSeenEditor) {
