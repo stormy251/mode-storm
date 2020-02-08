@@ -1,6 +1,6 @@
 module.exports = {
 	collectCoverageFrom: [
-		'**/*.{js,jsx,ts,tsx}',
+		'**/*.{ts,tsx}',
 		'!**/*.d.ts',
 		'!**/node_modules/**',
 	],
@@ -13,7 +13,7 @@ module.exports = {
 		'^.+\\.module\\.(css|sass|scss)$',
 	],
 	testPathIgnorePatterns: ['<rootDir>/.next/', '<rootDir>/node_modules/'],
-	moduleNameMapper: {
+	moduleNameMapper: { // These should be kept in sync with the alias defined in the next.config.js
 		'^lib(.*)$': '<rootDir>/src/lib$1',
 		'^zones(.*)$': '<rootDir>/src/zones$1',
 		'^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy',
