@@ -1,8 +1,14 @@
-import React, {createContext, useState, useEffect} from 'react';
-import PropTypes from 'prop-types';
+import React, {createContext, useState, useEffect, ReactNode} from 'react';
 import {spaceFetcher} from 'lib/fetchers/spaceFetcher';
 
-export const spaceInit = async (spaceId) => {
+interface Props {
+  /** Must be a single React node, it cannot contain a React fragment */
+  children?: ReactNode;
+  /** Array of report detail objects */
+  reports?: any[];
+}
+
+export const spaceInit = async (spaceId): Promise<Props> => {
   const initData = {
     reports: []
   };
@@ -19,7 +25,7 @@ export const SpaceContext = createContext({
   reports: []
 });
 
-export const SpaceContextProvider = (props) => {
+export const SpaceContextProvider = (props: Props) => {
   const {children, reports} = props;
 
   const [state, setState] = useState({
@@ -40,16 +46,4 @@ export const SpaceContextProvider = (props) => {
       {children}
     </SpaceContext.Provider>
   );
-};
-
-SpaceContextProvider.defaultProps = {
-  children: null,
-  reports: []
-};
-
-SpaceContextProvider.propTypes = {
-  /** Any React node */
-  children: PropTypes.node,
-  /** Array of report objs for the given space */
-  reports: PropTypes.array
 };

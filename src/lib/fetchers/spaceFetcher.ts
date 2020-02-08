@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-unfetch';
 
-export const spaceFetcher = async (id) => {
+export const spaceFetcher = async (id): Promise<any> => {
   let spaceInfo = null;
 
   if (id) {

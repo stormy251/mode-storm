@@ -1,6 +1,6 @@
 import React, {createContext, ReactNode, useState} from 'react';
 
-export interface ModalContextProps {
+interface Props {
   /** Must be a single React node, it cannot contain a React fragment */
   children: ReactNode;
 }
@@ -12,26 +12,17 @@ export interface Modal {
   props: object;
 }
 
-export interface ModalContext {
-  /** Stack like data structure used to provide a stacking modal construction */
-  modalArray: Array<Modal>;
-  /** Method used to push a new Modal onto the stack */
-  openModal: (ModalContent: ModalContext) => void;
-  /** Method used to pop a Modal off of the stack */
-  closeModal: () => void;
-}
-
 export const ModalContext = createContext({
   modalArray: [],
-  openModal: (ModalContent: ModalContext) => {},
+  openModal: (ModalContent: Modal) => {},
   closeModal: () => {}
 });
 
-export const ModalContextProvider = (props: ModalContextProps) => {
+export const ModalContextProvider = (props: Props) => {
   const {children} = props;
 
-  const [state, setState]: [ModalContext, React.Dispatch<React.SetStateAction<{ modalArray: any[]; openModal(ModalContent): void; closeModal(): void }>>] = useState({
-    openModal (ModalContent: ModalContext): void {
+  const [state, setState] = useState({
+    openModal (ModalContent: Modal): void {
       setState((state) => {
         return {...state, modalArray: [...state.modalArray, ModalContent]};
       });

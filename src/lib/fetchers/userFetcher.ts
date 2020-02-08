@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-unfetch';
 
-export const userFetcher = async (id) => {
+export const userFetcher = async (id): Promise<any> => {
   let user = null;
 
   if (id) {

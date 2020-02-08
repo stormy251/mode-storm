@@ -6,7 +6,7 @@
     "build": "next build",
     "start": "next start",
     "deploy": "now",
-    "lint": "eslint --fix --ext .tsx src",
+    "lint": "eslint --fix --ext .tsx --ext .ts src",
     "test": "jest --passWithNoTests",
     "test:watch": "jest --watch",
     "storybook": "start-storybook -p 6006",

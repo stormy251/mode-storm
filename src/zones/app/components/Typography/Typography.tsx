@@ -1,7 +1,5 @@
 import React, {ReactNode} from 'react';
-import PropTypes from 'prop-types';
 import styled, {css} from 'styled-components';
-import {colors} from 'lib/theme';
 
 export const STYLES = {
   fontWeight: {
@@ -110,7 +108,7 @@ const typographyTypeMap = {
   'Caption': CaptionText
 };
 
-export interface Props {
+interface Props {
   /** Must be a single React node, it cannot contain a React fragment */
   children?: ReactNode;
   /** Sets the text-align css property */

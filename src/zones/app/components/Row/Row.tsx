@@ -9,6 +9,7 @@ const Row = styled(motion.div)<{
   justify?: string;
 }>`
 	align-items: ${({align}) => align ? align : null};
+	box-sizing: border-box;
 	background-color: ${({color}) => color};
 	display: flex;
 	height: ${({height}) => height ? height : '100%'};

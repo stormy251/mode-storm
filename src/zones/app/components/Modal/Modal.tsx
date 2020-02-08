@@ -15,7 +15,7 @@ const ModalOverlay = styled(motion.div)`
   width: 100vw;
 `;
 
-export interface Props {
+interface Props {
   /** Must be a single React node, it cannot contain a React fragment */
   children?: ReactNode;
   /** The hidden motion variant desired to animate the content of the modal out of view */

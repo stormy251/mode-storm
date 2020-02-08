@@ -1,6 +1,5 @@
-import React, {useContext} from 'react';
+import React, {ReactNode, useContext} from 'react';
 import {motion} from 'framer-motion';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {UserContext} from 'zones/app/contexts/UserContext';
 import {colors} from 'lib/theme';
@@ -15,7 +14,12 @@ const SideNavContainer = styled(motion.div)`
 	width: 288px;
 `;
 
-const SideNav = (props) => {
+interface Props {
+  /** Must be a single React node, it cannot contain a React fragment */
+  children?: ReactNode;
+}
+
+const SideNav = (props: Props) => {
   const {children} = props;
   const {name, signedIn} = useContext(UserContext);
 
@@ -38,11 +42,6 @@ const SideNav = (props) => {
       {children}
     </SideNavContainer>
   );
-};
-
-SideNav.propTypes = {
-  /** Any React node */
-  children: PropTypes.node
 };
 
 export default SideNav;

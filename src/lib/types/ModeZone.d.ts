@@ -1,4 +1,4 @@
 export type ModeZone = {
-  zoneInit: Function
-  LayoutComponent: ReactNode
+  zoneInit: Function;
+  LayoutComponent: ReactNode;
 };

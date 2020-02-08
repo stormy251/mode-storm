@@ -3,8 +3,6 @@ import {AnimatePresence, motion} from 'framer-motion';
 import styled from 'styled-components';
 import SideNav from './components/SideNav';
 import HomeHeader from './components/HomeHeader';
-import {DefinitionContextProvider} from './contexts/DefinitionContext';
-import {OrganizationContextProvider} from './contexts/OrganizationContext';
 import {SpaceContextProvider} from './contexts/SpaceContext';
 import {colors} from 'lib/theme';
 
@@ -39,7 +37,7 @@ const homeVariants = {
   }
 };
 
-export interface HomeLayoutProps {
+interface Props {
   /** Must be a single React node, it cannot contain a React fragment */
   children: ReactNode;
   /** String representing the requested route name */
@@ -52,39 +50,35 @@ export interface HomeLayoutProps {
   reports: any[];
 }
 
-const HomeLayout = (props: HomeLayoutProps) => {
+const HomeLayout = (props: Props) => {
   const {children, transitionKey, pageTitle, organizationId, reports} = props;
 
   return (
     <HomeLayoutContainer>
-      <OrganizationContextProvider>
-        <DefinitionContextProvider>
-          <SpaceContextProvider reports={reports}>
-            <SideNav>
-              <span>{organizationId}</span>
-            </SideNav>
-            <Column>
-              <HomeHeader title={pageTitle}/>
-              <AnimatePresence
-                exitBeforeEnter
-              >
-                <ContentContainer
-                  key={transitionKey}
-                  variants={homeVariants}
-                  initial="hidden"
-                  animate="visible"
-                  exit="hidden"
-                  transition={{
-                    staggerChildren: 0.6
-                  }}
-                >
-                  {children}
-                </ContentContainer>
-              </AnimatePresence>
-            </Column>
-          </SpaceContextProvider>
-        </DefinitionContextProvider>
-      </OrganizationContextProvider>
+      <SpaceContextProvider reports={reports}>
+        <SideNav>
+          <span>{organizationId}</span>
+        </SideNav>
+        <Column>
+          <HomeHeader title={pageTitle}/>
+          <AnimatePresence
+            exitBeforeEnter
+          >
+            <ContentContainer
+              key={transitionKey}
+              variants={homeVariants}
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              transition={{
+                staggerChildren: 0.6
+              }}
+            >
+              {children}
+            </ContentContainer>
+          </AnimatePresence>
+        </Column>
+      </SpaceContextProvider>
     </HomeLayoutContainer>
   );
 };

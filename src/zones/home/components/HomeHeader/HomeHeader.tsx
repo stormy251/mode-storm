@@ -1,12 +1,12 @@
 import React from 'react';
 import {motion} from 'framer-motion';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Typography from 'zones/app/components/Typography';
+import {colors} from 'lib/theme';
 
 const HomeHeaderContainer = styled(motion.div)`
 	align-items: center;
-	border-bottom: solid 1px slategrey;
+	border-bottom: solid 1px ${colors.gray.v500};
 	box-sizing: border-box;
 	display: flex;
 	height: 55px;
@@ -15,7 +15,12 @@ const HomeHeaderContainer = styled(motion.div)`
 	width: 100%;
 `;
 
-const HomeHeader = (props) => {
+interface Props {
+  /** The title of the page. */
+  title: string;
+}
+
+const HomeHeader = (props: Props) => {
   const {title} = props;
 
   return (
@@ -28,11 +33,6 @@ const HomeHeader = (props) => {
 
     </HomeHeaderContainer>
   );
-};
-
-HomeHeader.propTypes = {
-  /** The title of the page. */
-  title: PropTypes.string
 };
 
 export default HomeHeader;

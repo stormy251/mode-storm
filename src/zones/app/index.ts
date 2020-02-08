@@ -1,7 +1,7 @@
 import {launchDarklyInit} from './contexts/LaunchDarklyContext';
 import {userInit} from './contexts/UserContext';
 import AppLayout from './AppLayout';
-import {ModeZone} from "lib/types/ModeZone";
+import {ModeZone} from 'lib/types/ModeZone';
 
 const AppZone: ModeZone = {
   zoneInit: async () => {

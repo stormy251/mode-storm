@@ -1,31 +1,14 @@
 import React, {createContext, ReactNode, useState} from 'react';
 import {userFetcher} from 'lib/fetchers/userFetcher';
 
-export interface UserContextProviderProps {
+interface Props {
   /** Must be a single React node, it cannot contain a React fragment */
   children?: ReactNode;
   /** user object detailing the information about the current user */
   user?: any;
 }
 
-export interface UserContext {
-  /** If the user is basic or not tehe */
-  basic?: boolean;
-  /** If the user has seen a viz or an editor page */
-  hasSeenEditor?: boolean;
-  /** The current users name */
-  name?: string;
-  /** If the current user is signed in or not */
-  signedIn?: boolean;
-  /** Sign the current user out */
-  signOut?: Function;
-  /** Sign a new user in */
-  signIn?: (userId: string) => {};
-  /** Records if the current user has seen an editor or visualization page */
-  setHasSeenEditor?: Function;
-}
-
-export const userInit = async (): Promise<UserContextProviderProps> => {
+export const userInit = async (): Promise<Props> => {
   const initData = {
     user: {}
   };
@@ -49,7 +32,7 @@ export const UserContext = createContext({
   setHasSeenEditor: () => {}
 });
 
-export const UserContextProvider = (props: UserContextProviderProps) => {
+export const UserContextProvider = (props: Props) => {
   const {children, user} = props;
 
   const [state, setState] = useState({

@@ -6,7 +6,7 @@ import {ModalContextProvider} from './contexts/ModalContext';
 import {UserContextProvider} from './contexts/UserContext';
 import ModalOutlet from './components/ModalOutlet';
 
-export interface AppLayoutProps {
+interface Props {
   /** Must be a single React node, it cannot contain a React fragment */
   children: ReactNode;
   /** String representing the layout type */
@@ -25,12 +25,11 @@ const AppContainer = styled(motion.div)`
 	width: 100%;
 `;
 
-
 /**
  * This component is responsible for managing layout changes,
  * as well as facilitating a predictable pattern for global services such as modals/notifications/etc...
  */
-const AppLayout = (props: AppLayoutProps) => {
+const AppLayout = (props: Props) => {
   const {children, layoutKey, user, flags} = props;
 
   return (
