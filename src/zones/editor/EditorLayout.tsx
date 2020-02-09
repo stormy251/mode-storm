@@ -26,16 +26,16 @@ export interface EditorLayoutProps {
   pageTitle: string;
   /** String representing the name of the current organization */
   organizationId: string;
-  /** String representing the name of the current organization */
-  queries: any[];
+  /** Object representing the information for the current report */
+  report: any;
 }
 
 const EditorLayout = (props: EditorLayoutProps) => {
-  const {children, transitionKey, pageTitle, queries} = props;
+  const {children, transitionKey, pageTitle, report} = props;
 
   return (
-    <Column initial={false}>
-      <ReportContextProvider queries={queries}>
+    <Column>
+      <ReportContextProvider report={report}>
         <Row height={'48px'} color={colors.gray.v1100}>
           <Typography type="Subtitle" color={colors.white}>{pageTitle}</Typography>
         </Row>

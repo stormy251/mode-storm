@@ -2,11 +2,17 @@ import {NextApiRequest, NextApiResponse} from 'next';
 
 type Data = {
   queries: any[];
+  owner: any;
+  reportName: string;
 }
 
 export default ({query: {reportId}}: NextApiRequest, res: NextApiResponse<Data>) => {
   const reportData = {
-    queries: []
+    queries: [],
+    owner: {
+      name: ''
+    },
+    reportName: ''
   };
 
   switch(reportId) {
@@ -17,6 +23,8 @@ export default ({query: {reportId}}: NextApiRequest, res: NextApiResponse<Data>)
           id: 1
         }
       ];
+      reportData.owner.name = 'John Doe';
+      reportData.reportName = 'Storm Report';
       break;
     case '7891011':
       reportData.queries = [
@@ -29,6 +37,8 @@ export default ({query: {reportId}}: NextApiRequest, res: NextApiResponse<Data>)
           id: 3
         }
       ];
+      reportData.owner.name = 'John Doe';
+      reportData.reportName = 'Storm Report --- V2';
       break;
   }
   res.statusCode = 200;

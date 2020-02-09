@@ -76,6 +76,14 @@ const ReportsPage: ModePage = () => {
                 <Typography type="Subtitle">Results View</Typography>
                 <br/>
                 <br/>
+                <Link href="/editor/[organizationId]/reports/[reportId]" as="/editor/mode/reports/123456">
+                  <a>To first test report page</a>
+                </Link>
+                <Link href="/editor/[organizationId]/reports/[reportId]" as="/editor/mode/reports/7891011">
+                  <a>To second test report page</a>
+                </Link>
+                <br/>
+                <br/>
                 <Link href="/home/[organizationId]/discover" as="/home/mode/discover">
                   <a>To discover</a>
                 </Link>
@@ -98,15 +106,6 @@ const ReportsPage: ModePage = () => {
 };
 
 ReportsPage.zone = EditorZone;
-
-ReportsPage.getInitialProps = async ({query}) => {
-  const {organizationId, reportId} = query;
-  return {
-    organizationId,
-    reportId,
-    pageTitle: `ReportID - ${reportId} for Org: ${organizationId}`
-  };
-};
 
 // Default export is a requirement for nextjs to know this is the export for the page.
 export default ReportsPage;

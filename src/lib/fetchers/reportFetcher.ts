@@ -1,18 +1,22 @@
 import fetch from 'isomorphic-unfetch';
 
 export const reportFetcher = async (reportId): Promise<any> => {
-  let reportInfo = {
-    queries: []
+  let report = {
+    queries: [],
+    owner: {
+      name: ''
+    },
+    reportName: ''
   };
 
   if (reportId) {
     try {
       const reportResponse = await fetch(`${process.env.apiBaseURL}/api/report/${reportId}`);
-      reportInfo = await reportResponse.json();
+      report = await reportResponse.json();
     } catch (error) {
       console.log(error);
     }
   }
 
-  return reportInfo;
+  return report;
 };

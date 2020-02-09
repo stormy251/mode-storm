@@ -3,8 +3,9 @@ import {ModeZone} from 'lib/types/ModeZone';
 import {reportInit} from 'zones/editor/contexts/ReportContext';
 
 const EditorZone: ModeZone = {
-  zoneInit: async () => {
-    const reportInitData = await reportInit('123456');
+  zoneInit: async ({query}) => {
+    const {reportId} = query;
+    const reportInitData = await reportInit(reportId);
     return {
       ...reportInitData
     };
