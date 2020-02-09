@@ -1,10 +1,10 @@
-import React, {useContext, useState} from "react";
-import {colors} from "lib/theme";
-import Typography from "zones/app/components/Typography";
-import {AnimatePresence, motion} from "framer-motion";
-import Column from "zones/app/components/Column";
-import {ReportContext} from "zones/editor/contexts/ReportContext";
-import styled from "styled-components";
+import React, {useContext, useState} from 'react';
+import {colors} from 'lib/theme';
+import Typography from 'zones/app/components/Typography';
+import {AnimatePresence, motion} from 'framer-motion';
+import Column from 'zones/app/components/Column';
+import {ReportContext} from 'zones/editor/contexts/ReportContext';
+import styled from 'styled-components';
 
 const leftSideNavVariants = {
   hidden: {
@@ -113,7 +113,7 @@ const LeftSideNav = () => {
         }
       </AnimatePresence>
     </Column>
-  )
+  );
 };
 
 export default LeftSideNav;

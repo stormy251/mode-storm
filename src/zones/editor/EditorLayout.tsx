@@ -4,9 +4,9 @@ import Column from 'zones/app/components/Column';
 import Row from 'zones/app/components/Row';
 import {colors} from 'lib/theme';
 import Typography from 'zones/app/components/Typography';
-import {ReportContextProvider} from "zones/editor/contexts/ReportContext";
-import LeftSideNav from './components/LeftSideNav'
-import QueryNavigatorBar from "./components/QueryNavigatorBar";
+import {ReportContextProvider} from 'zones/editor/contexts/ReportContext';
+import LeftSideNav from './components/LeftSideNav';
+import QueryNavigatorBar from './components/QueryNavigatorBar';
 
 const contentVariants = {
   hidden: {

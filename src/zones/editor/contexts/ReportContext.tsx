@@ -3,9 +3,9 @@ import {reportFetcher} from 'lib/fetchers/reportFetcher';
 
 interface Props {
   /** Must be a single React node, it cannot contain a React fragment */
-  children?: ReactNode
+  children?: ReactNode;
   /** An array of query detail objects */
-  queries?: any[]
+  queries?: any[];
 }
 
 /** Method used to fetch the details for a given report */

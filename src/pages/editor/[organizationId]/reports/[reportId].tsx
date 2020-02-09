@@ -87,7 +87,7 @@ const ReportsPage: ModePage = () => {
           >
             {sideBarOpen &&
               <Column custom={4} variants={rightSideNavVariants} exit="hidden" width={'255px'} color={colors.white} borderLeft>
-								<Typography type="Subtitle">Right Side nav</Typography>
+                <Typography type="Subtitle">Right Side nav</Typography>
               </Column>
             }
           </AnimatePresence>

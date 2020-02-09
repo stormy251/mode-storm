@@ -1,6 +1,6 @@
 import EditorLayout from './EditorLayout';
 import {ModeZone} from 'lib/types/ModeZone';
-import {reportInit} from "zones/editor/contexts/ReportContext";
+import {reportInit} from 'zones/editor/contexts/ReportContext';
 
 const EditorZone: ModeZone = {
   zoneInit: async () => {
