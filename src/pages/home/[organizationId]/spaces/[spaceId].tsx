@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import {ModePage} from 'lib/types/ModePage';
 import Link from 'next/link';
 import HomeZone from 'zones/home';
-import {SpaceContext} from "zones/home/contexts/SpaceContext";
+import {SpaceContext} from 'zones/home/contexts/SpaceContext';
 import Typography from 'zones/app/components/Typography';
 
 const SpacesPage: ModePage = () => {
