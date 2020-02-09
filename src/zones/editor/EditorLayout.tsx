@@ -2,18 +2,23 @@ import React, {ReactNode} from 'react';
 import {AnimatePresence} from 'framer-motion';
 import Column from 'zones/app/components/Column';
 import Row from 'zones/app/components/Row';
-import {colors} from 'lib/theme';
-import Typography from 'zones/app/components/Typography';
 import {ReportContextProvider} from 'zones/editor/contexts/ReportContext';
-import LeftSideNav from './components/LeftSideNav';
-import QueryNavigatorBar from './components/QueryNavigatorBar';
+import LeftSideNav from 'zones/editor/components/LeftSideNav';
+import QueryNavigatorBar from 'zones/editor/components/QueryNavigatorBar';
+import EditorHeader from 'zones/editor/components/EditorHeader';
 
 const contentVariants = {
   hidden: {
-    opacity: 0
+    opacity: 0,
+    transition: {
+      duration: 0.2
+    }
   },
   visible: {
-    opacity: 1
+    opacity: 1,
+    transition: {
+      duration: 0.2
+    }
   }
 };
 
@@ -22,8 +27,6 @@ export interface EditorLayoutProps {
   children: ReactNode;
   /** String representing the requested route name */
   transitionKey: string;
-  /** String representing the page name */
-  pageTitle: string;
   /** String representing the name of the current organization */
   organizationId: string;
   /** Object representing the information for the current report */
@@ -31,14 +34,12 @@ export interface EditorLayoutProps {
 }
 
 const EditorLayout = (props: EditorLayoutProps) => {
-  const {children, transitionKey, pageTitle, report} = props;
+  const {children, transitionKey, report} = props;
 
   return (
     <Column>
       <ReportContextProvider report={report}>
-        <Row height={'48px'} color={colors.gray.v1100}>
-          <Typography type="Subtitle" color={colors.white}>{pageTitle}</Typography>
-        </Row>
+        <EditorHeader/>
         <Row>
           <AnimatePresence
             exitBeforeEnter

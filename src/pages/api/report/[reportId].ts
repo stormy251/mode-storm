@@ -3,7 +3,7 @@ import {NextApiRequest, NextApiResponse} from 'next';
 type Data = {
   queries: any[];
   owner: any;
-  reportName: string;
+  name: string;
 }
 
 export default ({query: {reportId}}: NextApiRequest, res: NextApiResponse<Data>) => {
@@ -12,7 +12,7 @@ export default ({query: {reportId}}: NextApiRequest, res: NextApiResponse<Data>)
     owner: {
       name: ''
     },
-    reportName: ''
+    name: ''
   };
 
   switch(reportId) {
@@ -24,7 +24,7 @@ export default ({query: {reportId}}: NextApiRequest, res: NextApiResponse<Data>)
         }
       ];
       reportData.owner.name = 'John Doe';
-      reportData.reportName = 'Storm Report';
+      reportData.name = 'Storm Report';
       break;
     case '7891011':
       reportData.queries = [
@@ -38,7 +38,7 @@ export default ({query: {reportId}}: NextApiRequest, res: NextApiResponse<Data>)
         }
       ];
       reportData.owner.name = 'John Doe';
-      reportData.reportName = 'Storm Report --- V2';
+      reportData.name = 'Storm Report --- V2';
       break;
   }
   res.statusCode = 200;
