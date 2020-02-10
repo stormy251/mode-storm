@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 import {ModePage} from 'lib/types/ModePage';
-import Link from 'next/link';
-import {AnimatePresence} from 'framer-motion';
-import Row from 'zones/app/components/Row';
-import Column from 'zones/app/components/Column';
-import {colors} from 'lib/theme';
 import EditorZone from 'zones/editor';
+import Column from 'zones/app/components/Column';
+import Row from 'zones/app/components/Row';
+import {colors} from 'lib/theme';
 import Typography from 'zones/app/components/Typography';
+import {AnimatePresence} from 'framer-motion';
+import Link from 'next/link';
 
 const sectionVariants = {
   visible: sectionNumOffset => ({
@@ -49,7 +49,7 @@ const articleVariants = {
   }
 };
 
-const ReportsPage: ModePage = () => {
+const VisualizationPage: ModePage = () => {
   const [sideBarOpen, setSideBarOpen] = useState(true);
 
   return (
@@ -67,26 +67,11 @@ const ReportsPage: ModePage = () => {
             </Column>
             <Row variants={articleVariants} color={colors.white} height={'50%'}>
               <Column variants={articleVariants}>
-                <Typography type="Subtitle">Results View</Typography>
+                <Typography type="Subtitle">Look I am a visualization page</Typography>
                 <br/>
                 <br/>
                 <Link href="/editor/[organizationId]/reports/[reportId]" as="/editor/mode/reports/123456">
                   <a>To first test report page</a>
-                </Link>
-                <br/>
-                <br/>
-                <Link href="/editor/[organizationId]/reports/[reportId]" as="/editor/mode/reports/7891011">
-                  <a>To second test report page</a>
-                </Link>
-                <br/>
-                <br/>
-                <Link href="/editor/[organizationId]/reports/[reportId]/viz/[vizId]" as="/editor/mode/reports/7891011/viz/2">
-                  <a>To visualization page</a>
-                </Link>
-                <br/>
-                <br/>
-                <Link href="/home/[organizationId]/discover" as="/home/mode/discover">
-                  <a>To discover</a>
                 </Link>
               </Column>
             </Row>
@@ -106,7 +91,7 @@ const ReportsPage: ModePage = () => {
   );
 };
 
-ReportsPage.zone = EditorZone;
+VisualizationPage.zone = EditorZone;
 
 // Default export is a requirement for nextjs to know this is the export for the page.
-export default ReportsPage;
+export default VisualizationPage;

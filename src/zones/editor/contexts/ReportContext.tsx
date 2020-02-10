@@ -20,27 +20,34 @@ export const reportInit = async (reportId): Promise<Props> => {
 
 export const ReportContext = createContext({
   queries: [],
+  activeQuery: {
+    name: '',
+    id: 0,
+    visualizations: []
+  },
   ownerName: '',
-  reportName: ''
+  reportName: '',
+  id: ''
 });
 
 export const ReportContextProvider = (props: Props) => {
   const {children, report} = props;
 
-  const [state, setState] = useState({
-    queries: report.queries,
-    ownerName: report.owner.name,
-    reportName: report.name
-  });
+  const reInitState = () => {
+    return {
+      queries: report.queries,
+      ownerName: report.owner.name,
+      reportName: report.name,
+      activeQuery: report.queries[0],
+      id: report.id
+    };
+  };
+
+  const [state, setState] = useState(reInitState());
 
   const handleReportsUpdate = () => {
-    setState((state) => {
-      return {
-        ...state,
-        queries: report.queries,
-        ownerName: report.owner.name,
-        reportName: report.name
-      };
+    setState(() => {
+      return reInitState();
     });
   };
 

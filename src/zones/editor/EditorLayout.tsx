@@ -41,23 +41,23 @@ const EditorLayout = (props: EditorLayoutProps) => {
       <ReportContextProvider report={report}>
         <EditorHeader/>
         <Row>
-          <AnimatePresence
-            exitBeforeEnter
-          >
-            <Row
-              key={transitionKey}
-              variants={contentVariants}
-              initial={'hidden'}
-              animate={'visible'}
-              exit={'hidden'}
+          <LeftSideNav/>
+          <Column>
+            <QueryNavigatorBar/>
+            <AnimatePresence
+              exitBeforeEnter
             >
-              <LeftSideNav/>
-              <Column>
-                <QueryNavigatorBar/>
+              <Row
+                key={transitionKey}
+                variants={contentVariants}
+                initial={'hidden'}
+                animate={'visible'}
+                exit={'hidden'}
+              >
                 {children}
-              </Column>
-            </Row>
-          </AnimatePresence>
+              </Row>
+            </AnimatePresence>
+          </Column>
         </Row>
       </ReportContextProvider>
     </Column>
