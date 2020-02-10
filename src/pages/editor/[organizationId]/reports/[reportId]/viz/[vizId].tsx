@@ -56,25 +56,13 @@ const VisualizationPage: ModePage = () => {
     <Row custom={1} variants={sectionVariants}>
       <Column custom={2} variants={sectionVariants}>
         <Row variants={articleVariants}>
-          <Column custom={2} variants={sectionVariants}>
-            <Column variants={articleVariants} color={colors.black} height={'50%'}>
-              <Row color={'rgba(255, 255, 255, 0.2)'} height={'40px'}>
-                <Typography type="Subtitle" color={colors.white}>Editor Header</Typography>
-              </Row>
-              <Row>
-                <Typography type="Subtitle" color={colors.white}>Editor</Typography>
-              </Row>
-            </Column>
-            <Row variants={articleVariants} color={colors.white} height={'50%'}>
-              <Column variants={articleVariants}>
-                <Typography type="Subtitle">Look I am a visualization page</Typography>
-                <br/>
-                <br/>
-                <Link href="/editor/[organizationId]/reports/[reportId]" as="/editor/mode/reports/123456">
-                  <a>To first test report page</a>
-                </Link>
-              </Column>
-            </Row>
+          <Column custom={2} variants={sectionVariants} color={colors.blue.v300}>
+            <Typography type="Subtitle">Look I am a visualization page</Typography>
+            <br/>
+            <br/>
+            <Link href="/editor/[organizationId]/reports/[reportId]" as="/editor/mode/reports/123456">
+              <a>To first test report page</a>
+            </Link>
           </Column>
           <AnimatePresence
             exitBeforeEnter
